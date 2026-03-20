@@ -54,7 +54,7 @@ body {
 
 /* Gelb) */
 body.theme-yellow {
-    background-color: #f6f1c4;
+    background-color: hsl(109, 93%, 52%);
 }
 
 /* Rot */
@@ -68,7 +68,7 @@ body.theme-gray {
 }
 
 body.theme-blue {
-    background-color: #7791fac5;
+    background-color: #2a55ffc5;
 }
 
 /* =========================
