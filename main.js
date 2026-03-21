@@ -99,6 +99,21 @@ document.addEventListener("DOMContentLoaded", function () {
             .forEach(item => item.classList.remove('sidebar-hover'));
     });
     
+    /* =========================
+    IMAGE FADE-IN ON LOAD
+    ========================= */
+
+    const gridImages = document.querySelectorAll('.media-grid img');
+
+    gridImages.forEach((img) => {
+        if (img.complete) {
+            img.classList.add('is-loaded');
+        } else {
+            img.addEventListener('load', () => {
+                img.classList.add('is-loaded');
+            });
+        }
+    });
 
     /* =========================
     LIGHTBOX (EDITORIAL MODE)
