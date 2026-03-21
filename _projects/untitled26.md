@@ -18,4 +18,5 @@ thumbnail: /images/untitled/untitled26_a.jpg
         {{ page.materials }}, {{ page.location }}
     </p>
 </div>
+<p></p>
 <p>The space above the lamps is used. Combined materials — fan, metal rods, tape, elastic rubber band and light— form projections. They work with/for and/or against each other.</p>
