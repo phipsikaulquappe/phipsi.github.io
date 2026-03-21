@@ -98,11 +98,11 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.preview-item')
             .forEach(item => item.classList.remove('sidebar-hover'));
     });
-    
+
     /* =========================
     IMAGE FADE-IN ON LOAD
     ========================= */
-
+    
     const gridImages = document.querySelectorAll('.media-grid img');
 
     gridImages.forEach((img) => {
