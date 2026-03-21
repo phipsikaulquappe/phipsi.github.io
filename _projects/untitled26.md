@@ -10,9 +10,9 @@ thumbnail: /images/untitled/untitled26_a.jpg
 ---
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 <div class="media-grid">
-    <img src="/images/untitled/untitled26_a.jpg" loading="lazy">
-    <img src="/images/untitled/untitled26_b.jpg" loading="lazy">
-    <img src="/images/untitled/untitled26_c.jpg" loading="lazy">
+    <img src="/images/untitled/untitled26_a.jpg" loading="lazy" width="1200" height="1600">
+    <img src="/images/untitled/untitled26_b.jpg" loading="lazy" width="1200" height="1600">
+    <img src="/images/untitled/untitled26_c.jpg" loading="lazy" width="1200" height="1600">
     <p class="media-description">
         <em>{{ page.title }}</em><span class="year">, {{ page.year }},</span>
         {{ page.materials }}, {{ page.location }}
