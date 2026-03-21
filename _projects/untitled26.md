@@ -4,7 +4,7 @@ title: Untitled
 year: 2026
 materials: Installation
 dimensions: 
-location: Rundgang, HGB Leipzig
+location: HGB Leipzig (Rundgang)
 date: 2026-02-08
 thumbnail: /images/untitled/untitled26_a.jpg
 ---
