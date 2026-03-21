@@ -5,7 +5,7 @@ year: 2026
 materials: Installation
 dimensions: 
 date: 2026-02-08
-thumbnail: /images/untitled26.jpg
+thumbnail: /images/untitled26/untitled26_a.jpg
 ---
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 <p>The space above the lamps is used. Combined materials — fan, metal rods, tape, elastic rubber band and light— form projections. They work with/for and/or against each other.</p>
