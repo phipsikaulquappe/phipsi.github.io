@@ -11,7 +11,7 @@ thumbnail: /images/untitled26/untitled26_a.jpg
 <div class="media-grid">
     <img src="/images/untitled26/untitled26_a.jpg" loading="eager">
     <img src="/images/untitled26/untitled26_b.jpg" loading="eager">
-    <img src="/images/untitled26/untitled26_c.jpg" loading="eager">
+    <img src="/images/untitled26_c.jpg" loading="eager">
     <p class="media-description">
         <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
         {{ page.materials }}<br>
