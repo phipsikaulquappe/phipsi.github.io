@@ -5,7 +5,7 @@ year: 2026
 materials: Installation
 dimensions: 
 date: 2026-02-08
-thumbnail: /images/untitled26/untitled26_a.jpg
+thumbnail: /images/untitled/untitled26_a.jpg
 ---
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 <div class="media-grid">
