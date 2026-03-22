@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let lastX = null;
         let lastY = null;
         let pauseDrawing = false;
-        let isMouseDown = false;
+        let recordingLocked = false;
 
         let recordingStart = null;
         let recordedSegments = [];
@@ -253,6 +253,12 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.lineJoin = 'round';
         }
 
+        function startRecording() {
+            recordingStart = performance.now();
+            recordedSegments = [];
+            recordingLocked = false;
+        }
+
         function downloadDrawingJSON() {
             if (!recordedSegments.length) return;
 
@@ -273,57 +279,12 @@ document.addEventListener("DOMContentLoaded", function () {
             URL.revokeObjectURL(url);
         }
 
-        function openMailDraft() {
-            const subject = encodeURIComponent('Recorded drawing');
-            const body = encodeURIComponent(
-                'Hi,\n\nI attached the recorded drawing JSON file from the About page.\n\n'
-            );
-
-            window.location.href = `mailto:mail.philippalbrecht.net?subject=${subject}&body=${body}`;
-        }
-
-        function startRecording() {
-            recordingStart = performance.now();
-            recordedSegments = [];
-        }
-
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
-
-        document.addEventListener('mousedown', (e) => {
-            if (e.button !== 0) return;
-
-            const rect = aboutArea.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            if (x < 0 || y < 0 || x > rect.width || y > rect.height) return;
-
-            isMouseDown = true;
-            lastX = null;
-            lastY = null;
-            startRecording();
-        });
-
-        document.addEventListener('mouseup', () => {
-            if (!isMouseDown) return;
-
-            isMouseDown = false;
-            lastX = null;
-            lastY = null;
-
-            if (recordedSegments.length) {
-                downloadDrawingJSON();
-
-                /* optional:
-                Mail-Entwurf öffnen — E-Mail-Adresse einsetzen
-                */
-                openMailDraft();
-            }
-        });
+        startRecording();
 
         document.addEventListener('mousemove', (e) => {
-            if (!isMouseDown || pauseDrawing) {
+            if (pauseDrawing || recordingLocked) {
                 lastX = null;
                 lastY = null;
                 return;
@@ -361,6 +322,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             lastX = x;
             lastY = y;
+        });
+
+        document.addEventListener('mousedown', (e) => {
+            if (e.button !== 0) return;
+            if (!recordedSegments.length) return;
+            if (recordingLocked) return;
+
+            downloadDrawingJSON();
+            recordingLocked = true;
+            lastX = null;
+            lastY = null;
         });
 
         const aboutLinks = document.querySelectorAll('.about-draw-area a');
