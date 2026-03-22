@@ -325,24 +325,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         document.addEventListener('mousedown', (e) => {
+            if (e.button !== 0) return;
+            if (!recordedSegments.length) return;
+            if (recordingLocked) return;
 
-            // Zeichnung pausieren NICHT!
-            // Nur optional speichern
-
-            const dataStr = JSON.stringify(recordedPath, null, 2);
-            const blob = new Blob([dataStr], { type: "application/json" });
-            const url = URL.createObjectURL(blob);
-
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'drawing.json';
-
-            // WICHTIG: setTimeout Trick → verhindert Blockieren
-            setTimeout(() => {
-                a.click();
-                URL.revokeObjectURL(url);
-            }, 0);
-
+            downloadDrawingJSON();
+            recordingLocked = true;
+            lastX = null;
+            lastY = null;
         });
 
         const aboutLinks = document.querySelectorAll('.about-draw-area a');
