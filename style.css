@@ -180,7 +180,8 @@ a:visited {
 
 .nav-right a.active {
     /* border-bottom: 2px solid #000000; */
-    color: #3a3a3a;
+    /* color: #3a3a3a; */
+    color: #f1d11c;
     padding-bottom: 2px;
     font-weight: bold;
 }
