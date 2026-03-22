@@ -341,77 +341,151 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
     /* =========================
-         DRAWING REPLAY
+        DRAWING REPLAY
     ========================= */
 
     const replayCanvas = document.getElementById('replayCanvas');
 
     if (replayCanvas) {
-        const dataSource = replayCanvas.dataset.source;
+        const drawings = JSON.parse(replayCanvas.dataset.drawings || '[]');
+        const ctx = replayCanvas.getContext('2d');
 
-        if (dataSource) {
-            fetch(dataSource)
+        const btnPrevDrawing = document.getElementById('drawingNavLeft');
+        const btnNextDrawing = document.getElementById('drawingNavRight');
+        const drawingCounter = document.getElementById('drawingCounter');
+
+        let currentDrawingIndex = 0;
+        let replayData = [];
+        let currentIndex = 0;
+        let startReplayTime = null;
+        let replayAnimationId = null;
+
+        function resizeReplayCanvas() {
+            const dpr = window.devicePixelRatio || 1;
+            const width = replayCanvas.clientWidth;
+            const height = replayCanvas.clientHeight;
+
+            replayCanvas.width = width * dpr;
+            replayCanvas.height = height * dpr;
+
+            replayCanvas.style.width = width + 'px';
+            replayCanvas.style.height = height + 'px';
+
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.scale(dpr, dpr);
+
+            ctx.lineWidth = 1.3;
+            ctx.strokeStyle = '#b3ff00';
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+        }
+
+        function clearReplayCanvas() {
+            ctx.clearRect(0, 0, replayCanvas.width, replayCanvas.height);
+        }
+
+        function drawSegment(segment) {
+            if (segment.type !== 'line') return;
+
+            ctx.beginPath();
+            ctx.moveTo(segment.x1, segment.y1);
+            ctx.lineTo(segment.x2, segment.y2);
+            ctx.stroke();
+        }
+
+        function updateDrawingCounter() {
+            if (!drawingCounter || !drawings.length) return;
+            drawingCounter.textContent = `${currentDrawingIndex + 1} / ${drawings.length}`;
+        }
+
+        function animateReplay(timestamp) {
+            if (!startReplayTime) {
+                startReplayTime = timestamp;
+            }
+
+            const elapsed = timestamp - startReplayTime;
+
+            while (
+                currentIndex < replayData.length &&
+                replayData[currentIndex].t <= elapsed
+            ) {
+                drawSegment(replayData[currentIndex]);
+                currentIndex++;
+            }
+
+            if (currentIndex < replayData.length) {
+                replayAnimationId = requestAnimationFrame(animateReplay);
+            }
+        }
+
+        function startReplay() {
+            currentIndex = 0;
+            startReplayTime = null;
+            clearReplayCanvas();
+
+            if (replayAnimationId) {
+                cancelAnimationFrame(replayAnimationId);
+            }
+
+            replayAnimationId = requestAnimationFrame(animateReplay);
+            updateDrawingCounter();
+        }
+
+        function loadDrawing(index) {
+            if (!drawings.length) return;
+
+            if (index < 0) {
+                currentDrawingIndex = drawings.length - 1;
+            } else if (index >= drawings.length) {
+                currentDrawingIndex = 0;
+            } else {
+                currentDrawingIndex = index;
+            }
+
+            fetch(drawings[currentDrawingIndex])
                 .then(response => response.json())
-                .then(replayData => {
-                    const ctx = replayCanvas.getContext('2d');
-
-                    function resizeReplayCanvas() {
-                        const dpr = window.devicePixelRatio || 1;
-                        const width = replayCanvas.clientWidth;
-                        const height = replayCanvas.clientHeight;
-
-                        replayCanvas.width = width * dpr;
-                        replayCanvas.height = height * dpr;
-
-                        ctx.setTransform(1, 0, 0, 1, 0, 0);
-                        ctx.scale(dpr, dpr);
-
-                        ctx.lineWidth = 1.3;
-                        ctx.strokeStyle = '#b3ff00';
-                        ctx.lineCap = 'round';
-                        ctx.lineJoin = 'round';
-                    }
-
-                    resizeReplayCanvas();
-                    window.addEventListener('resize', resizeReplayCanvas);
-
-                    let startReplayTime = null;
-                    let currentIndex = 0;
-
-                    function drawSegment(segment) {
-                        if (segment.type !== 'line') return;
-
-                        ctx.beginPath();
-                        ctx.moveTo(segment.x1, segment.y1);
-                        ctx.lineTo(segment.x2, segment.y2);
-                        ctx.stroke();
-                    }
-
-                    function animateReplay(timestamp) {
-                        if (!startReplayTime) {
-                            startReplayTime = timestamp;
-                        }
-
-                        const elapsed = timestamp - startReplayTime;
-
-                        while (
-                            currentIndex < replayData.length &&
-                            replayData[currentIndex].t <= elapsed
-                        ) {
-                            drawSegment(replayData[currentIndex]);
-                            currentIndex++;
-                        }
-
-                        if (currentIndex < replayData.length) {
-                            requestAnimationFrame(animateReplay);
-                        }
-                    }
-
-                    requestAnimationFrame(animateReplay);
+                .then(data => {
+                    replayData = data;
+                    startReplay();
                 })
                 .catch(error => {
                     console.error('Replay JSON konnte nicht geladen werden:', error);
                 });
         }
+
+        function showNextDrawing() {
+            loadDrawing(currentDrawingIndex + 1);
+        }
+
+        function showPrevDrawing() {
+            loadDrawing(currentDrawingIndex - 1);
+        }
+
+        resizeReplayCanvas();
+
+        window.addEventListener('resize', () => {
+            resizeReplayCanvas();
+            startReplay();
+        });
+
+        if (btnNextDrawing) {
+            btnNextDrawing.addEventListener('click', showNextDrawing);
+        }
+
+        if (btnPrevDrawing) {
+            btnPrevDrawing.addEventListener('click', showPrevDrawing);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                showNextDrawing();
+            }
+
+            if (e.key === 'ArrowLeft') {
+                showPrevDrawing();
+            }
+        });
+
+        loadDrawing(0);
     }
 });
