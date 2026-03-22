@@ -585,11 +585,10 @@ a:visited {
 
 .drawing-controls {
     margin-top: 18px;
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: relative;
+    justify-content: center;
+    gap: 28px;
 }
 
 .drawing-nav {
@@ -598,12 +597,19 @@ a:visited {
     font-family: inherit;
     font-size: 40px;
     line-height: 1;
-    padding: 6px 0;
+    padding: 6px 10px;
     color: rgba(119, 145, 250, 0.78);
     cursor: pointer;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
+.drawing-nav-left {
+    justify-self: start;
+}
+
+.drawing-nav-right {
+    justify-self: end;
+}
 
 .drawing-nav:hover {
     opacity: 0.6;
@@ -611,13 +617,11 @@ a:visited {
 }
 
 .drawing-counter {
-    margin: 0;
+    min-width: 70px;
     text-align: center;
+    margin: 0;
     font-size: 0.95rem;
     line-height: 1.2;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 @media (max-width: 900px) {
