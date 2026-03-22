@@ -340,8 +340,9 @@ document.addEventListener("DOMContentLoaded", function () {
             URL.revokeObjectURL(url);
         };
     }
+
     /* =========================
-        DRAWING REPLAY
+         DRAWING REPLAY
     ========================= */
 
     const replayCanvas = document.getElementById('replayCanvas');
@@ -360,10 +361,16 @@ document.addEventListener("DOMContentLoaded", function () {
         let startReplayTime = null;
         let replayAnimationId = null;
 
+        let canvasWidth = 0;
+        let canvasHeight = 0;
+
         function resizeReplayCanvas() {
             const dpr = window.devicePixelRatio || 1;
             const width = replayCanvas.clientWidth;
             const height = replayCanvas.clientHeight;
+
+            canvasWidth = width;
+            canvasHeight = height;
 
             replayCanvas.width = width * dpr;
             replayCanvas.height = height * dpr;
@@ -381,15 +388,42 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function clearReplayCanvas() {
-            ctx.clearRect(0, 0, replayCanvas.width, replayCanvas.height);
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
         }
 
-        function drawSegment(segment) {
+        function getBounds(data) {
+            let minX = Infinity;
+            let minY = Infinity;
+            let maxX = -Infinity;
+            let maxY = -Infinity;
+
+            data.forEach(segment => {
+                if (segment.type !== 'line') return;
+
+                minX = Math.min(minX, segment.x1, segment.x2);
+                minY = Math.min(minY, segment.y1, segment.y2);
+                maxX = Math.max(maxX, segment.x1, segment.x2);
+                maxY = Math.max(maxY, segment.y1, segment.y2);
+            });
+
+            if (!isFinite(minX) || !isFinite(minY) || !isFinite(maxX) || !isFinite(maxY)) {
+                return { minX: 0, minY: 0, maxX: canvasWidth, maxY: canvasHeight };
+            }
+
+            return { minX, minY, maxX, maxY };
+        }
+
+        function drawSegment(segment, transform) {
             if (segment.type !== 'line') return;
 
+            const x1 = (segment.x1 - transform.minX) * transform.scale + transform.offsetX;
+            const y1 = (segment.y1 - transform.minY) * transform.scale + transform.offsetY;
+            const x2 = (segment.x2 - transform.minX) * transform.scale + transform.offsetX;
+            const y2 = (segment.y2 - transform.minY) * transform.scale + transform.offsetY;
+
             ctx.beginPath();
-            ctx.moveTo(segment.x1, segment.y1);
-            ctx.lineTo(segment.x2, segment.y2);
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
             ctx.stroke();
         }
 
@@ -398,18 +432,48 @@ document.addEventListener("DOMContentLoaded", function () {
             drawingCounter.textContent = `${currentDrawingIndex + 1} / ${drawings.length}`;
         }
 
+        function getTransform(data) {
+            const bounds = getBounds(data);
+            const drawingWidth = Math.max(bounds.maxX - bounds.minX, 1);
+            const drawingHeight = Math.max(bounds.maxY - bounds.minY, 1);
+
+            const padding = 20;
+            const availableWidth = Math.max(canvasWidth - padding * 2, 1);
+            const availableHeight = Math.max(canvasHeight - padding * 2, 1);
+
+            const scale = Math.min(
+                availableWidth / drawingWidth,
+                availableHeight / drawingHeight
+            );
+
+            const scaledWidth = drawingWidth * scale;
+            const scaledHeight = drawingHeight * scale;
+
+            const offsetX = (canvasWidth - scaledWidth) / 2;
+            const offsetY = (canvasHeight - scaledHeight) / 2;
+
+            return {
+                minX: bounds.minX,
+                minY: bounds.minY,
+                scale,
+                offsetX,
+                offsetY
+            };
+        }
+
         function animateReplay(timestamp) {
             if (!startReplayTime) {
                 startReplayTime = timestamp;
             }
 
             const elapsed = timestamp - startReplayTime;
+            const transform = getTransform(replayData);
 
             while (
                 currentIndex < replayData.length &&
                 replayData[currentIndex].t <= elapsed
             ) {
-                drawSegment(replayData[currentIndex]);
+                drawSegment(replayData[currentIndex], transform);
                 currentIndex++;
             }
 
@@ -463,9 +527,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         resizeReplayCanvas();
 
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-            resizeReplayCanvas();
-            startReplay();
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                resizeReplayCanvas();
+
+                /* NUR neu zeichnen, nicht Replay neu starten */
+                if (replayData.length) {
+                    const alreadyDrawn = replayData.slice(0, currentIndex);
+                    clearReplayCanvas();
+                    const transform = getTransform(replayData);
+                    alreadyDrawn.forEach(segment => drawSegment(segment, transform));
+                }
+            }, 150);
         });
 
         if (btnNextDrawing) {
