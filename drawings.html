@@ -3,4 +3,28 @@ layout: default
 title: Drawings
 ---
 
-<p>Drawings</p>
+<h1 class="project-title">Drawings</h1>
+
+<div id="preview-grid">
+
+{% assign items = site.drawings | sort: "date" | reverse %}
+
+{% for item in items %}
+    {% if item.thumbnail %}
+        <a href="{{ item.url }}" 
+           class="preview-item"
+           data-project="{{ item.url }}">
+            <div class="preview-image">
+                <img src="{{ item.thumbnail }}" loading="eager" alt="{{ item.title }}">
+            </div>
+            <div class="preview-title">
+                <em>{{ item.title }}</em>
+                {% if item.year %}
+                    <span class="year">, {{ item.year }}</span>
+                {% endif %}
+            </div>
+        </a>
+    {% endif %}
+{% endfor %}
+
+</div>

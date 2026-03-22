@@ -340,5 +340,78 @@ document.addEventListener("DOMContentLoaded", function () {
             URL.revokeObjectURL(url);
         };
     }
-    
+    /* =========================
+         DRAWING REPLAY
+    ========================= */
+
+    const replayCanvas = document.getElementById('replayCanvas');
+
+    if (replayCanvas) {
+        const dataSource = replayCanvas.dataset.source;
+
+        if (dataSource) {
+            fetch(dataSource)
+                .then(response => response.json())
+                .then(replayData => {
+                    const ctx = replayCanvas.getContext('2d');
+
+                    function resizeReplayCanvas() {
+                        const dpr = window.devicePixelRatio || 1;
+                        const width = replayCanvas.clientWidth;
+                        const height = replayCanvas.clientHeight;
+
+                        replayCanvas.width = width * dpr;
+                        replayCanvas.height = height * dpr;
+
+                        ctx.setTransform(1, 0, 0, 1, 0, 0);
+                        ctx.scale(dpr, dpr);
+
+                        ctx.lineWidth = 1.3;
+                        ctx.strokeStyle = '#b3ff00';
+                        ctx.lineCap = 'round';
+                        ctx.lineJoin = 'round';
+                    }
+
+                    resizeReplayCanvas();
+                    window.addEventListener('resize', resizeReplayCanvas);
+
+                    let startReplayTime = null;
+                    let currentIndex = 0;
+
+                    function drawSegment(segment) {
+                        if (segment.type !== 'line') return;
+
+                        ctx.beginPath();
+                        ctx.moveTo(segment.x1, segment.y1);
+                        ctx.lineTo(segment.x2, segment.y2);
+                        ctx.stroke();
+                    }
+
+                    function animateReplay(timestamp) {
+                        if (!startReplayTime) {
+                            startReplayTime = timestamp;
+                        }
+
+                        const elapsed = timestamp - startReplayTime;
+
+                        while (
+                            currentIndex < replayData.length &&
+                            replayData[currentIndex].t <= elapsed
+                        ) {
+                            drawSegment(replayData[currentIndex]);
+                            currentIndex++;
+                        }
+
+                        if (currentIndex < replayData.length) {
+                            requestAnimationFrame(animateReplay);
+                        }
+                    }
+
+                    requestAnimationFrame(animateReplay);
+                })
+                .catch(error => {
+                    console.error('Replay JSON konnte nicht geladen werden:', error);
+                });
+        }
+    }
 });
