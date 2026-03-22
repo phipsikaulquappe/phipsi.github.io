@@ -325,23 +325,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         document.addEventListener('mousedown', (e) => {
+            if (e.button !== 0) return;
+            if (!recordedSegments.length) return;
+            if (recordingLocked) return;
 
-            // NICHT auslösen wenn Link geklickt wird
-            if (e.target.closest('a')) return;
-
-            const dataStr = JSON.stringify(recordedPath, null, 2);
-            const blob = new Blob([dataStr], { type: "application/json" });
-            const url = URL.createObjectURL(blob);
-
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'drawing.json';
-
-            document.body.appendChild(a); // wichtig für Safari
-            a.click();
-            document.body.removeChild(a);
-
-            URL.revokeObjectURL(url);
+            downloadDrawingJSON();
+            recordingLocked = true;
+            lastX = null;
+            lastY = null;
         });
 
         const aboutLinks = document.querySelectorAll('.about-draw-area a');
