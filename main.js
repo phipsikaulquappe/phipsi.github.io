@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================
-         ABOUT DRAWING
+        ABOUT DRAWING
     ========================= */
 
     const aboutCanvas = document.getElementById('aboutCanvas');
@@ -229,8 +229,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let lastX = null;
         let lastY = null;
         let pauseDrawing = false;
-        let drawingData = [];
-        let startTime = null;   
+        let isMouseDown = false;
+
+        let recordingStart = null;
+        let recordedSegments = [];
 
         function resizeCanvas() {
             const rect = aboutArea.getBoundingClientRect();
@@ -251,11 +253,77 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.lineJoin = 'round';
         }
 
+        function downloadDrawingJSON() {
+            if (!recordedSegments.length) return;
+
+            const json = JSON.stringify(recordedSegments, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            const now = new Date();
+            const filename = `about-drawing-${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}-${String(now.getMinutes()).padStart(2, '0')}-${String(now.getSeconds()).padStart(2, '0')}.json`;
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+
+            URL.revokeObjectURL(url);
+        }
+
+        function openMailDraft() {
+            const subject = encodeURIComponent('Recorded drawing');
+            const body = encodeURIComponent(
+                'Hi,\n\nI attached the recorded drawing JSON file from the About page.\n\n'
+            );
+
+            window.location.href = `mailto:mail.philippalbrecht.net?subject=${subject}&body=${body}`;
+        }
+
+        function startRecording() {
+            recordingStart = performance.now();
+            recordedSegments = [];
+        }
+
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
+        document.addEventListener('mousedown', (e) => {
+            if (e.button !== 0) return;
+
+            const rect = aboutArea.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (x < 0 || y < 0 || x > rect.width || y > rect.height) return;
+
+            isMouseDown = true;
+            lastX = null;
+            lastY = null;
+            startRecording();
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (!isMouseDown) return;
+
+            isMouseDown = false;
+            lastX = null;
+            lastY = null;
+
+            if (recordedSegments.length) {
+                downloadDrawingJSON();
+
+                /* optional:
+                Mail-Entwurf öffnen — E-Mail-Adresse einsetzen
+                */
+                openMailDraft();
+            }
+        });
+
         document.addEventListener('mousemove', (e) => {
-            if (pauseDrawing) {
+            if (!isMouseDown || pauseDrawing) {
                 lastX = null;
                 lastY = null;
                 return;
@@ -271,23 +339,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            const now = performance.now();
-
-            if (startTime === null) {
-                startTime = now;
-            }
-
             if (lastX === null || lastY === null) {
                 lastX = x;
                 lastY = y;
-
-                drawingData.push({
-                    type: 'move',
-                    x: x,
-                    y: y,
-                    t: now - startTime
-                });
-
                 return;
             }
 
@@ -296,13 +350,13 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.lineTo(x, y);
             ctx.stroke();
 
-            drawingData.push({
+            recordedSegments.push({
                 type: 'line',
                 x1: lastX,
                 y1: lastY,
                 x2: x,
                 y2: y,
-                t: now - startTime
+                t: Math.round(performance.now() - recordingStart)
             });
 
             lastX = x;
@@ -322,23 +376,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 lastY = null;
             });
         });
-
-        window.getDrawingData = function () {
-            return drawingData;
-        };
-
-        window.downloadDrawingData = function () {
-            const dataStr = JSON.stringify(drawingData, null, 2);
-            const blob = new Blob([dataStr], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'drawing-data.json';
-            a.click();
-
-            URL.revokeObjectURL(url);
-        };
     }
 
     /* =========================
