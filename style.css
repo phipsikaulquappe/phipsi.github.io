@@ -627,15 +627,19 @@ a:visited {
         gap: 18px;
     }
 
+    .drawing-nav {
+        font-size: 30px;
+        line-height: 1;
+        height: 1em;
+    }
+
     .drawing-counter {
         position: static;
         transform: none;
         font-size: 0.9rem;
-    }
-
-    .drawing-nav {
-        font-size: 40px;
-        padding: 0;
+        line-height: 1;
+        display: flex;
+        align-items: center;
     }
 }
 
