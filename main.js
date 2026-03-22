@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    
+
     /* =========================
          ABOUT DRAWING
     ========================= */
@@ -243,8 +243,8 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.setTransform(1, 0, 0, 1, 0, 0);
             ctx.scale(dpr, dpr);
 
-            ctx.lineWidth = 1.2;
-            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 1.3;
+            ctx.strokeStyle = '#b3ff00';
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
         }
