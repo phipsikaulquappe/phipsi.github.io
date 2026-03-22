@@ -229,6 +229,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let lastX = null;
         let lastY = null;
         let pauseDrawing = false;
+        let drawingData = [];
+        let startTime = null;   
 
         function resizeCanvas() {
             const rect = aboutArea.getBoundingClientRect();
@@ -269,9 +271,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+            const now = performance.now();
+
+            if (startTime === null) {
+                startTime = now;
+            }
+
             if (lastX === null || lastY === null) {
                 lastX = x;
                 lastY = y;
+
+                drawingData.push({
+                    type: 'move',
+                    x: x,
+                    y: y,
+                    t: now - startTime
+                });
+
                 return;
             }
 
@@ -279,6 +295,15 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.moveTo(lastX, lastY);
             ctx.lineTo(x, y);
             ctx.stroke();
+
+            drawingData.push({
+                type: 'line',
+                x1: lastX,
+                y1: lastY,
+                x2: x,
+                y2: y,
+                t: now - startTime
+            });
 
             lastX = x;
             lastY = y;
@@ -297,6 +322,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 lastY = null;
             });
         });
+
+        window.getDrawingData = function () {
+            return drawingData;
+        };
+
+        window.downloadDrawingData = function () {
+            const dataStr = JSON.stringify(drawingData, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'drawing-data.json';
+            a.click();
+
+            URL.revokeObjectURL(url);
+        };
     }
     
 });
