@@ -589,6 +589,8 @@ a:visited {
     align-items: center;
     justify-content: center;
     gap: 28px;
+    margin-left: -6px;
+    margin-right: -6px;
 }
 
 .drawing-nav {
@@ -601,14 +603,6 @@ a:visited {
     color: rgba(119, 145, 250, 0.78);
     cursor: pointer;
     transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.drawing-nav-left {
-    justify-self: start;
-}
-
-.drawing-nav-right {
-    justify-self: end;
 }
 
 .drawing-nav:hover {
@@ -636,7 +630,6 @@ a:visited {
 
     .drawing-nav {
         font-size: 30px;
-        color: rgba(119, 145, 250, 0.78);
     }
 
     .drawing-counter {
