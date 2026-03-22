@@ -11,13 +11,21 @@
         }
     })();
     </script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+    {% if page.title %}
+        {{ page.title }} – {{ site.title }}
+    {% else %}
+        {{ site.title }}
+    {% endif %}
+    </title>
 
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Leipzig-based artist exploring material and spacial relations."/>
+    <meta name="description" content="Leipzig-based artist exploring material and spacial relations.">
 
     <meta property="og:title" content="{{ page.title }} — {{ site.title }}">
     <meta property="og:description" content="Artist portfolio">
@@ -27,55 +35,41 @@
 
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <link rel="stylesheet" href="/style.css">
     <link rel="shortcut icon" href="/assets/favicon.png">
-    <title>
-    {% if page.title %}
-        {{ page.title }} – {{ site.title }}
-    {% else %}
-        {{ site.title }}
-    {% endif %}
-    </title>
 </head>
-
-<div id="lightbox" class="lightbox hidden">
-
-    <!-- Close -->
-    <button class="slideshow-close" id="slideshowClose" aria-label="Close">
-        <img src="/assets/x.png" alt=""
-             onerror="this.style.display='none'; this.parentElement.innerHTML='×';">
-    </button>
-
-    <!-- Prev -->
-    <button class="slideshow-nav slideshow-nav-left" id="slideshowNavLeft" aria-label="Previous image">
-        <img src="/assets/prev.png" alt="">
-    </button>
-
-    <!-- Image -->
-    <img class="lightbox-image" src="">
-
-    <!-- Next -->
-    <button class="slideshow-nav slideshow-nav-right" id="slideshowNavRight" aria-label="Next image">
-        <img src="/assets/next.png" alt="">
-    </button>
-
-</div>
 
 <body class="theme-red">
 
-<div class="layout">
+    <div id="lightbox" class="lightbox hidden">
 
-    {% include header.html %}
-    {% include sidebar.html %}
+        <button class="slideshow-close" id="slideshowClose" aria-label="Close">
+            <img src="/assets/x.png" alt=""
+                 onerror="this.style.display='none'; this.parentElement.innerHTML='×';">
+        </button>
 
-    <main class="main">
-        {{ content }}
-        {% include project-navigation.html %}
-    </main>
+        <button class="slideshow-nav slideshow-nav-left" id="slideshowNavLeft" aria-label="Previous image">
+            <img src="/assets/prev.png" alt="">
+        </button>
 
-</div>
+        <img class="lightbox-image" src="" alt="">
 
-<script src="/main.js"></script>
+        <button class="slideshow-nav slideshow-nav-right" id="slideshowNavRight" aria-label="Next image">
+            <img src="/assets/next.png" alt="">
+        </button>
+
+    </div>
+
+    <div class="layout">
+        {% include header.html %}
+        {% include sidebar.html %}
+
+        <main class="main">
+            {{ content }}
+            {% include project-navigation.html %}
+        </main>
+    </div>
+
+    <script src="/main.js"></script>
 </body>
 </html>
