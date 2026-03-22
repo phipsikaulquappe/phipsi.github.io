@@ -621,17 +621,21 @@ a:visited {
 }
 
 @media (max-width: 900px) {
-    #replayCanvas {
-        height: 60vh;
-    }
-
     .drawing-controls {
         margin-top: 14px;
-        position: relative;
+        justify-content: center;
+        gap: 18px;
     }
 
     .drawing-counter {
+        position: static;
+        transform: none;
         font-size: 0.9rem;
+    }
+
+    .drawing-nav {
+        font-size: 35px;
+        padding: 0;
     }
 }
 
