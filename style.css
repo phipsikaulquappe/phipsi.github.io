@@ -567,6 +567,17 @@ a:visited {
     z-index: 2;
 }
 
+.draw-instructions {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    right: 40px;
+
+    font-size: 14px;
+    line-height: 1.2;
+    opacity: 0.8;
+}
+
 /* =========================
    DRAWING REPLAY
 ========================= */
@@ -641,6 +652,10 @@ a:visited {
 
     .drawing-counter {
         font-size: 0.9rem;
+    }
+
+    .draw-instructions {
+        display: none;
     }
 }
 
