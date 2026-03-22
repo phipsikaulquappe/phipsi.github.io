@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /* =========================
     IMAGE FADE-IN ON LOAD
     ========================= */
-    
+
     const gridImages = document.querySelectorAll('.media-grid img');
 
     gridImages.forEach((img) => {
@@ -212,6 +212,90 @@ document.addEventListener("DOMContentLoaded", function () {
                 showPrev();
             }
 
+        });
+    }
+
+    
+    /* =========================
+         ABOUT DRAWING
+    ========================= */
+
+    const aboutCanvas = document.getElementById('aboutCanvas');
+
+    if (aboutCanvas) {
+        const ctx = aboutCanvas.getContext('2d');
+        const aboutArea = document.querySelector('.about-draw-area');
+
+        let lastX = null;
+        let lastY = null;
+        let pauseDrawing = false;
+
+        function resizeCanvas() {
+            const rect = aboutArea.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+
+            aboutCanvas.width = rect.width * dpr;
+            aboutCanvas.height = rect.height * dpr;
+
+            aboutCanvas.style.width = rect.width + 'px';
+            aboutCanvas.style.height = rect.height + 'px';
+
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.scale(dpr, dpr);
+
+            ctx.lineWidth = 1.2;
+            ctx.strokeStyle = '#000';
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        document.addEventListener('mousemove', (e) => {
+            if (pauseDrawing) {
+                lastX = null;
+                lastY = null;
+                return;
+            }
+
+            const rect = aboutArea.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+                lastX = null;
+                lastY = null;
+                return;
+            }
+
+            if (lastX === null || lastY === null) {
+                lastX = x;
+                lastY = y;
+                return;
+            }
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+
+            lastX = x;
+            lastY = y;
+        });
+
+        const aboutLinks = document.querySelectorAll('.about-draw-area a');
+
+        aboutLinks.forEach((link) => {
+            link.addEventListener('mouseenter', () => {
+                pauseDrawing = true;
+            });
+
+            link.addEventListener('mouseleave', () => {
+                pauseDrawing = false;
+                lastX = null;
+                lastY = null;
+            });
         });
     }
     
