@@ -8,7 +8,6 @@ recorded_drawings:
   - /assets/recorded-drawing-data/drawing-01.json
   - /assets/recorded-drawing-data/drawing-02.json
   - /assets/recorded-drawing-data/drawing-03.json
-  - /assets/recorded-drawing-data/drawing-04.json
 ---
 
 <h1 class="project-title">
