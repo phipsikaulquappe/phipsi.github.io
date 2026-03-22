@@ -605,6 +605,14 @@ a:visited {
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
+.drawing-nav-left {
+    justify-self: start;
+}
+
+.drawing-nav-right {
+    justify-self: end;
+}
+
 .drawing-nav:hover {
     opacity: 0.6;
     transform: scale(1.05);
