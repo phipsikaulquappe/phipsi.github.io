@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
       LOAD SAVED THEME
     ========================== */
 
-    const themes = ["theme-red", "theme-gray", "theme-yellow", "theme-blue"];
+    const themes = ["theme-white", "theme-gray", "theme-green", "theme-purple"];
     const savedTheme = localStorage.getItem("siteTheme");
 
     // Alle Theme-Klassen entfernen
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.add(savedTheme);
     } else {
         // Default: Gray
-        document.body.classList.add("theme-red");
+        document.body.classList.add("theme-white");
     }
 
     /* =========================
@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
      /* =========================
-       SIDEBAR → PREVIEW HOVER LINK
-    ========================== */
+        SIDEBAR → PREVIEW HOVER LINK
+        ========================== */
 
     const sidebarLinks = document.querySelectorAll('.sidebar a[data-project]');
 

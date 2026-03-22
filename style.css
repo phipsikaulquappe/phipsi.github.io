@@ -53,12 +53,12 @@ body {
 }
 
 /* Gelb) */
-body.theme-yellow {
+body.theme-green {
     background-color: hsl(109, 93%, 52%);
 }
 
 /* Rot */
-body.theme-red {
+body.theme-white {
     background-color: #ffffff; /* #ee8e8e; */
 }
 
@@ -67,7 +67,7 @@ body.theme-gray {
     background-color: #e8e8e8;
 }
 
-body.theme-blue {
+body.theme-purple {
     background-color: #d12aff;
 }
 
