@@ -571,14 +571,9 @@ a:visited {
    DRAWING REPLAY
 ========================= */
 
-.drawing-replay-wrapper {
-    position: relative;
-    width: 100%;
-    margin-top: 20px;
-}
-
 .drawing-replay {
     width: 100%;
+    margin-top: 20px;
 }
 
 #replayCanvas {
@@ -588,50 +583,55 @@ a:visited {
     touch-action: pan-y;
 }
 
-.drawing-counter {
-    margin-top: 12px;
-    font-size: 0.9rem;
-    line-height: 1.2;
+.drawing-controls {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
 }
 
 .drawing-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     background: transparent;
     border: none;
     font-family: inherit;
     font-size: 40px;
     line-height: 1;
+    padding: 6px 10px;
+    color: rgba(119, 145, 250, 0.78);
     cursor: pointer;
-    z-index: 10;
-    padding: 10px;
-}
-
-.drawing-nav-left {
-    left: -10px;
-}
-
-.drawing-nav-right {
-    right: -10px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .drawing-nav:hover {
-    opacity: 0.4;
+    opacity: 0.6;
+    transform: scale(1.05);
+}
+
+.drawing-counter {
+    min-width: 70px;
+    text-align: center;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.2;
 }
 
 @media (max-width: 900px) {
     #replayCanvas {
-        width: 100%;
         height: 60vh;
+    }
+
+    .drawing-controls {
+        margin-top: 14px;
+        gap: 18px;
     }
 
     .drawing-nav {
         font-size: 30px;
+        color: rgba(119, 145, 250, 0.78);
     }
 
     .drawing-counter {
-        margin-top: 10px;
         font-size: 0.9rem;
     }
 }

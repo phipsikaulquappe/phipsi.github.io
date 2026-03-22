@@ -67,7 +67,9 @@
 
         <main class="main">
             {{ content }}
-            {% include project-navigation.html %}
+            {% unless page.hide_project_navigation %}
+                {% include project-navigation.html %}
+            {% endunless %}
         </main>
     </div>
 
