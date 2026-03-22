@@ -3,7 +3,6 @@ layout: default
 title: Recorded Drawings
 year: 2026
 date: 2026-03-22
-thumbnail: /images/drawing-thumb.jpg
 recorded_drawings:
   - /assets/recorded-drawing-data/drawing-01.json
   - /assets/recorded-drawing-data/drawing-02.json
