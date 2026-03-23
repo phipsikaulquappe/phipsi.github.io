@@ -710,9 +710,9 @@ a:visited {
 
         padding: 4px 10px;
         font-size: 14px;
-        color:#ffffff;
         background: rgb(113, 113, 113);
-        /* border: 1px solid #000; */
+        border: 1px solid rgb(113, 113, 113);
+        color:#ffffff;
     }
 
     /* Menu Button unter der Linie */
@@ -724,6 +724,7 @@ a:visited {
         bottom: auto;   /* sitzt unter der Linie */
         z-index: 3000; 
         background: rgb(113, 113, 113);
+        border: 1px solid rgb(113, 113, 113);
         color: #ffffff;
     }
 
