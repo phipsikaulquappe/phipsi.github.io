@@ -576,8 +576,7 @@ a:visited {
 }
 
 .draw-instructions a {
-    color: rgba(3, 10, 213, 0.78);
-    font-weight: bold;
+    font-weight: 200;
 }
 
 /* =========================
