@@ -683,7 +683,7 @@ a:visited {
     .header::after {
         content: "";
         position: absolute;
-        left: 30px;       /* Abstand links */
+        left: 0px;       /* Abstand links */
         right: 30px;      /* Abstand rechts */
         bottom: 30;
         height: 1.2px;      /* Dicke der Linie */
