@@ -575,6 +575,10 @@ a:visited {
     opacity: 0.8;
 }
 
+.draw-instructions a {
+    color: rgba(6, 9, 100, 0.78);
+}
+
 /* =========================
    DRAWING REPLAY
 ========================= */
