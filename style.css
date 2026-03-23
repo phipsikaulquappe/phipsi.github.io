@@ -721,7 +721,7 @@ a:visited {
         position: fixed;
         top: 127px;   
         right: 20px;
-        bottom: 0px;   /* sitzt unter der Linie */
+        bottom: auto;   /* sitzt unter der Linie */
         z-index: 3000; 
         background: rgb(55, 54, 54);
         color: #ffffff;
