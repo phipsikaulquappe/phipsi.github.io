@@ -569,9 +569,8 @@ a:visited {
 
 .draw-instructions {
     position: relative;
-
     font-size: 14px;
-    color: rgba(28, 57, 170, 0.78);
+    color: rgba(0, 0, 0, 0.78);
     line-height: 1.2;
     opacity: 0.8;
 }
