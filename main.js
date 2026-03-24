@@ -222,6 +222,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const aboutCanvas = document.getElementById('aboutCanvas');
 
+    let currentColor = '#b3ff00'; // default
+
     if (aboutCanvas) {
         const ctx = aboutCanvas.getContext('2d');
         const aboutArea = document.querySelector('.about-draw-area');
@@ -283,6 +285,34 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener('resize', resizeCanvas);
         startRecording();
 
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+
+            return color;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'a') currentColor = '#fff36e';
+            if (e.key === 's') currentColor = '#0000ff';
+            if (e.key === 'l') currentColor = '#00ff00';
+            if (e.key === 't') currentColor = '#1e00ff';
+            if (e.key === 'z') currentColor = '#ff8000';
+
+            // RANDOM COLOR
+            if (e.key === 'r') {
+                currentColor = getRandomColor();
+            }
+        });
+
+        document.addEventListener('keyup', () => {
+            currentColor = '#b3ff00'; // zurück zu default
+        });
+
         document.addEventListener('mousemove', (e) => {
             if (pauseDrawing || recordingLocked) {
                 lastX = null;
@@ -317,17 +347,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 y1: lastY,
                 x2: x,
                 y2: y,
-                t: Math.round(performance.now() - recordingStart)
+                t: Math.round(performance.now() - recordingStart),
+                color: currentColor
             });
 
             lastX = x;
             lastY = y;
         });
 
-        document.addEventListener('mousedown', (e) => {
-            if (e.button !== 0) return;
-            if (!recordedSegments.length) return;
-            if (recordingLocked) return;
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                downloadDrawingJSON();
+            }
+        });
 
             downloadDrawingJSON();
             recordingLocked = true;
@@ -391,7 +423,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.scale(dpr, dpr);
 
             ctx.lineWidth = 1.3;
-            ctx.strokeStyle = '#b3ff00';
+            ctx.strokeStyle = currentColor;
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
         }
@@ -424,6 +456,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function drawSegment(segment, transform) {
             if (segment.type !== 'line') return;
+
+            ctx.strokeStyle = segment.color || '#b3ff00';
 
             const x1 = (segment.x1 - transform.minX) * transform.scale + transform.offsetX;
             const y1 = (segment.y1 - transform.minY) * transform.scale + transform.offsetY;
