@@ -357,14 +357,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
-                downloadDrawingJSON();
-            }
-        });
+                if (!recordedSegments.length) return;
+                if (recordingLocked) return;
 
-            downloadDrawingJSON();
-            recordingLocked = true;
-            lastX = null;
-            lastY = null;
+                downloadDrawingJSON();
+                recordingLocked = true;
+                lastX = null;
+                lastY = null;
+            }
         });
 
         const aboutLinks = document.querySelectorAll('.about-draw-area a');
