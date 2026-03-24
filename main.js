@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.scale(dpr, dpr);
 
             ctx.lineWidth = 1.3;
-            ctx.strokeStyle = '#b3ff00';
+            ctx.strokeStyle = currentColor;
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
         }
