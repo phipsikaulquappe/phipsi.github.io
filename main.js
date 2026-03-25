@@ -309,9 +309,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        document.addEventListener('keyup', () => {
-            currentColor = '#b3ff00'; // zurück zu default
-        });
+        // document.addEventListener('keyup', () => {
+        //     currentColor = '#b3ff00'; // zurück zu default
+        // });
 
         document.addEventListener('mousemove', (e) => {
             if (pauseDrawing || recordingLocked) {
