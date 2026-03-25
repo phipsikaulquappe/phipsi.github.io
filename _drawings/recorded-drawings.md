@@ -9,10 +9,10 @@ recorded_drawings:
   - /assets/recorded-drawing-data/drawing-02.json
   - /assets/recorded-drawing-data/drawing-03.json
   - /assets/recorded-drawing-data/drawing-04.json
-#   - /assets/recorded-drawing-data/drawing-05.json
-#   - /assets/recorded-drawing-data/drawing-06.json
-#   - /assets/recorded-drawing-data/drawing-07.json
-#   - /assets/recorded-drawing-data/drawing-08.json
+  - /assets/recorded-drawing-data/drawing-05.json
+  - /assets/recorded-drawing-data/drawing-06.json
+  - /assets/recorded-drawing-data/drawing-07.json
+  - /assets/recorded-drawing-data/drawing-08.json
 #   - /assets/recorded-drawing-data/drawing-09.json
 #   - /assets/recorded-drawing-data/drawing-10.json
   
