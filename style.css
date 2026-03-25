@@ -773,10 +773,15 @@ a:visited {
         gap: 25px;
     }
 
-    .lightbox img {
-        min-width: 85vw;
-        min-height: 85vh;
-        object-fit: contain;
+    .lightbox-image {
+        width: 100vw;        /* volle Bildschirmbreite */
+        height: auto;        /* Seitenverhältnis behalten */
+        max-width: 100vw;
+        max-height: none;    /* wichtig: nicht begrenzen */
+    }
+
+    .lightbox {
+        padding: 0;          /* ggf. vorhandenes padding entfernen */
     }
 
     .video-wrapper,
