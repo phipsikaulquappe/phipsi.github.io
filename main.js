@@ -336,6 +336,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+            // 👉 HIER DIE FARBE SETZEN
+            ctx.strokeStyle = currentColor;
+
             ctx.beginPath();
             ctx.moveTo(lastX, lastY);
             ctx.lineTo(x, y);
