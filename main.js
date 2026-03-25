@@ -297,11 +297,31 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'a') currentColor = '#fff36e';
-            if (e.key === 's') currentColor = '#0000ff';
-            if (e.key === 'l') currentColor = '#00ff00';
-            if (e.key === 't') currentColor = '#1e00ff';
-            if (e.key === 'z') currentColor = '#ff8000';
+            if (e.key === 'a') currentColor = '#efebc1';
+            if (e.key === 'b') currentColor = '#7f7ff3';
+            if (e.key === 'c') currentColor = '#4b794b';
+            if (e.key === 'd') currentColor = '#0d0167';
+            if (e.key === 'e') currentColor = '#ff8000';
+            if (e.key === 'f') currentColor = '#fbe606';
+            if (e.key === 'g') currentColor = '#009dff';
+            if (e.key === 'h') currentColor = '#00fb00';
+            if (e.key === 'i') currentColor = '#2b1e8e';
+            if (e.key === 'j') currentColor = '#52310f';
+            if (e.key === 'k') currentColor = '#fff36e';
+            if (e.key === 'l') currentColor = '#ff0099';
+            if (e.key === 'm') currentColor = '#491850';
+            if (e.key === 'n') currentColor = '#ff0000';
+            if (e.key === 'o') currentColor = '#caca0b';
+            if (e.key === 'p') currentColor = '#6efff8';
+            if (e.key === 'q') currentColor = '#bf87ff';
+            if (e.key === 's') currentColor = '#b700ff';
+            if (e.key === 't') currentColor = '#ff85ef';
+            if (e.key === 'v') currentColor = '#ff8000';
+            if (e.key === 'w') currentColor = '#bbff6e';
+            if (e.key === 'x') currentColor = '#405a65';
+            if (e.key === 'y') currentColor = '#63a263';
+            if (e.key === 'z') currentColor = '#000000';
+            if (e.key === '1') currentColor = '#444444';
 
             // RANDOM COLOR
             if (e.key === 'r') {

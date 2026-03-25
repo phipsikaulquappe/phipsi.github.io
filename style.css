@@ -773,6 +773,12 @@ a:visited {
         gap: 25px;
     }
 
+    .lightbox img {
+        min-width: 85vw;
+        min-height: 85vh;
+        object-fit: contain;
+    }
+
     .video-wrapper,
     .media-wide,
     .media-description {
