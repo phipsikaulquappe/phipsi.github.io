@@ -27,9 +27,7 @@ recorded_drawings:
         id="replayCanvas"
         data-drawings='{{ page.recorded_drawings | jsonify }}'>
     </canvas>
-</div>
-
-<div class="drawing-controls">
+    <div class="recorded-drawing-navigation">
     <button class="drawing-nav drawing-nav-left" id="drawingNavLeft" aria-label="Previous drawing">
         ←
     </button>

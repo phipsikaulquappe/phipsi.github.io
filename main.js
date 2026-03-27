@@ -495,7 +495,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function updateDrawingCounter() {
             if (!drawingCounter || !drawings.length) return;
-            drawingCounter.textContent = `${currentDrawingIndex + 1} / ${drawings.length}`;
+            const displayIndex = drawings.length - currentDrawingIndex;
+            drawingCounter.textContent = `${displayIndex} / ${drawings.length}`;
         }
 
         function getTransform(data) {
@@ -627,6 +628,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        loadDrawing(0);
+        loadDrawing(drawings.length - 1);
     }
 });
