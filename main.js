@@ -409,6 +409,7 @@ document.addEventListener("DOMContentLoaded", function () {
          DRAWING REPLAY
     ========================= */
 
+    const drawingAuthor = document.getElementById('drawingAuthor');
     const replayCanvas = document.getElementById('replayCanvas');
 
     if (replayCanvas) {
@@ -573,15 +574,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 currentDrawingIndex = index;
             }
 
-            fetch(drawings[currentDrawingIndex])
+            fetch(drawings[currentDrawingIndex].file)
                 .then(response => response.json())
                 .then(data => {
                     replayData = data;
                     startReplay();
+                    updateAuthor(); 
                 })
+                
                 .catch(error => {
                     console.error('Replay JSON konnte nicht geladen werden:', error);
                 });
+
+            function updateAuthor() {
+                if (!drawingAuthor) return;
+
+                const author = drawings[currentDrawingIndex].author;
+
+                drawingAuthor.textContent = author ? author : '';
+            }
         }
 
         function showNextDrawing() {

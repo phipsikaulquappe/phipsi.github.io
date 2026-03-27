@@ -5,16 +5,26 @@ year: 2026
 date: 2026-03-22
 hide_project_navigation: true
 recorded_drawings:
-  - /assets/recorded-drawing-data/drawing-01.json
-  - /assets/recorded-drawing-data/drawing-02.json
-  - /assets/recorded-drawing-data/drawing-03.json
-  - /assets/recorded-drawing-data/drawing-04.json
-  - /assets/recorded-drawing-data/drawing-05.json
-  - /assets/recorded-drawing-data/drawing-06.json
-  - /assets/recorded-drawing-data/drawing-07.json
-  - /assets/recorded-drawing-data/drawing-08.json
-#   - /assets/recorded-drawing-data/drawing-09.json
-#   - /assets/recorded-drawing-data/drawing-10.json
+  - file: /assets/recorded-drawing-data/drawing-01.json
+    author: "Max Mustermann"
+  - file: /assets/recorded-drawing-data/drawing-02.json
+    author: "Anonymous"
+  - file: /assets/recorded-drawing-data/drawing-03.json
+    author: "Anonymous"
+  - file: /assets/recorded-drawing-data/drawing-04.json
+    author: "Anonymous"
+  - file: /assets/recorded-drawing-data/drawing-05.json
+    author: "Anonymous"
+  - file: /assets/recorded-drawing-data/drawing-06.json
+    author: "Anonymous"
+  - file: /assets/recorded-drawing-data/drawing-07.json
+    author: "Anonymous"
+  - file: /assets/recorded-drawing-data/drawing-08.json
+    author: "Anonymous"
+    # file: /assets/recorded-drawing-data/drawing-09.json
+    # author: "Anonymous"
+    # file: /assets/recorded-drawing-data/drawing-10.json
+    # author: "Anonymous"
   
 ---
 
@@ -27,7 +37,10 @@ recorded_drawings:
         id="replayCanvas"
         data-drawings='{{ page.recorded_drawings | jsonify }}'>
     </canvas>
-    <div class="recorded-drawing-navigation">
+    <div id="drawingAuthor" class="drawing-author"></div>
+</div>
+
+<div class="drawing-controls">
     <button class="drawing-nav drawing-nav-left" id="drawingNavLeft" aria-label="Previous drawing">
         ←
     </button>
