@@ -8,19 +8,19 @@ recorded_drawings:
   - file: /assets/recorded-drawing-data/drawing-01.json
     author: "Max Mustermann"
   - file: /assets/recorded-drawing-data/drawing-02.json
-    author: "Anonymous"
+    author: 
   - file: /assets/recorded-drawing-data/drawing-03.json
-    author: "Anonymous"
+    author: 
   - file: /assets/recorded-drawing-data/drawing-04.json
-    author: "Anonymous"
+    author: 
   - file: /assets/recorded-drawing-data/drawing-05.json
-    author: "Anonymous"
+    author:
   - file: /assets/recorded-drawing-data/drawing-06.json
-    author: "Anonymous"
+    author: 
   - file: /assets/recorded-drawing-data/drawing-07.json
-    author: "Anonymous"
+    author: 
   - file: /assets/recorded-drawing-data/drawing-08.json
-    author: "Anonymous"
+    author: 
     # file: /assets/recorded-drawing-data/drawing-09.json
     # author: "Anonymous"
     # file: /assets/recorded-drawing-data/drawing-10.json

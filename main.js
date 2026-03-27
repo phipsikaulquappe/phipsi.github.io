@@ -496,8 +496,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function updateDrawingCounter() {
             if (!drawingCounter || !drawings.length) return;
-            const displayIndex = drawings.length - currentDrawingIndex;
-            drawingCounter.textContent = `${displayIndex} / ${drawings.length}`;
+            const displayNumber = drawings.length - currentDrawingIndex;
+            drawingCounter.textContent = displayNumber;
         }
 
         function getTransform(data) {
@@ -581,7 +581,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     startReplay();
                     updateAuthor(); 
                 })
-                
+
                 .catch(error => {
                     console.error('Replay JSON konnte nicht geladen werden:', error);
                 });
