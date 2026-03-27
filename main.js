@@ -496,6 +496,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function updateDrawingCounter() {
             if (!drawingCounter || !drawings.length) return;
+
             const displayNumber = drawings.length - currentDrawingIndex;
             drawingCounter.textContent = displayNumber;
         }
@@ -573,7 +574,8 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 currentDrawingIndex = index;
             }
-
+            updateDrawingCounter();
+            
             fetch(drawings[currentDrawingIndex].file)
                 .then(response => response.json())
                 .then(data => {

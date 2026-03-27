@@ -37,17 +37,18 @@ recorded_drawings:
         id="replayCanvas"
         data-drawings='{{ page.recorded_drawings | jsonify }}'>
     </canvas>
-    <div id="drawingAuthor" class="drawing-author"></div>
 </div>
-
-<div class="drawing-controls">
-    <button class="drawing-nav drawing-nav-left" id="drawingNavLeft" aria-label="Previous drawing">
-        ←
-    </button>
-    <p id="drawingCounter" class="drawing-counter"></p>
-    <button class="drawing-nav drawing-nav-right" id="drawingNavRight" aria-label="Next drawing">
-        →
-    </button>
+<div class="drawing-ui">
+    <div class="drawing-controls">
+        <button class="drawing-nav drawing-nav-left" id="drawingNavLeft" aria-label="Previous drawing">
+            ←
+        </button>
+        <p id="drawingCounter" class="drawing-counter"></p>
+        <button class="drawing-nav drawing-nav-right" id="drawingNavRight" aria-label="Next drawing">
+            →
+        </button>
+    </div>
+    <div id="drawingAuthor" class="drawing-author"></div>
 </div>
 
 <p id="drawingCounter" class="drawing-counter"></p>
