@@ -645,30 +645,6 @@ a:visited {
     line-height: 1.2;
 }
 
-@media (max-width: 900px) {
-    #replayCanvas {
-        height: 60vh;
-    }
-
-    .drawing-controls {
-        margin-top: 14px;
-        gap: 18px;
-    }
-
-    .drawing-nav {
-        font-size: 40px;
-        color: rgba(119, 145, 250, 0.78);
-    }
-
-    .drawing-counter {
-        font-size: 0.9rem;
-    }
-
-    .draw-instructions {
-        display: none;
-    }
-}
-
 
 /* =========================
    RESPONSIVE
@@ -818,12 +794,31 @@ a:visited {
         font-weight: 600;
     }
 
-    /* recorded drawings replay */
+    /* recorded drawings */
+    #replayCanvas {
+        height: 60vh;
+    }
+
     .recorded-drawing-navigation {
+        margin-top: 14px;
+        gap: 18px;
         position: static;
         margin-top: 20px;
 
         justify-content: center;
+    }
+
+    .drawing-nav {
+        font-size: 40px;
+        color: rgba(119, 145, 250, 0.78);
+    }
+
+    .drawing-counter {
+        font-size: 0.9rem;
+    }
+
+    .draw-instructions {
+        display: none;
     }
 
 }
