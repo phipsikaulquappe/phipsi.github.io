@@ -595,6 +595,14 @@ a:visited {
     touch-action: pan-y;
 }
 
+    .drawing-controls {
+        margin-top: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+    }
+
 .drawing-nav {
     background: transparent;
     border: none;
@@ -636,11 +644,6 @@ a:visited {
     margin-top: 12px;
 }
 
-.drawing-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 
 .drawing-author {
     text-align: right;
