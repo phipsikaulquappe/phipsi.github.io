@@ -93,6 +93,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
+    
+        sidebarLinks.forEach(link => {
+        link.setAttribute('aria-haspopup', 'true');
+        link.addEventListener('click', (e) => {
+            // Toggle Sidebar
+        });
+    });
 
     document.querySelector('.sidebar').addEventListener('mouseleave', () => {
         document.querySelectorAll('.preview-item')
