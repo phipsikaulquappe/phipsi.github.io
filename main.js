@@ -33,20 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
       LOAD SAVED THEME
     ========================== */
 
+    const themes = ["theme-white", "theme-gray", "theme-green", "theme-purple"];
     const savedTheme = localStorage.getItem("siteTheme");
-    const themes = {
-        white: '#ffffff',
-        gray: '#e8e8e8',
-        green: 'hsl(109, 93%, 52%)',
-        purple: '#d12aff'
-    };
-
-    function setTheme(themeName) {
-        Object.keys(themes).forEach(t => document.body.classList.remove(t));
-        document.body.classList.add(themeName);
-        localStorage.setItem('siteTheme', themeName);
-    }
-    
     
     // Alle Theme-Klassen entfernen
     document.body.classList.remove(...themes);
