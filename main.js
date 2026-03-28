@@ -33,18 +33,17 @@ document.addEventListener("DOMContentLoaded", function () {
       LOAD SAVED THEME
     ========================== */
 
-    const themes = ["theme-white", "theme-gray", "theme-green", "theme-purple"];
-    const savedTheme = localStorage.getItem("siteTheme");
+    const themes = {
+        white: '#ffffff',
+        gray: '#e8e8e8',
+        green: 'hsl(109, 93%, 52%)',
+        purple: '#d12aff'
+    };
 
-    // Alle Theme-Klassen entfernen
-    document.body.classList.remove(...themes);
-
-    // Falls gespeichert → anwenden
-    if (savedTheme && themes.includes(savedTheme)) {
-        document.body.classList.add(savedTheme);
-    } else {
-        // Default: Gray
-        document.body.classList.add("theme-white");
+    function setTheme(themeName) {
+        Object.keys(themes).forEach(t => document.body.classList.remove(t));
+        document.body.classList.add(themeName);
+        localStorage.setItem('siteTheme', themeName);
     }
 
     /* =========================
@@ -93,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
-    
+
         sidebarLinks.forEach(link => {
         link.setAttribute('aria-haspopup', 'true');
         link.addEventListener('click', (e) => {
