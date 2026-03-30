@@ -505,7 +505,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!drawingCounter || !drawings.length) return;
 
             // Zählung beginnt bei der höchsten Zahl (neueste Zeichnung)
-            const displayNumber = currentDrawingIndex + 1;
+            const displayNumber = currentDrawingIndex - 1;
 
             // Maximalwert für die Zählung
             const maxNumber = drawings.length;
