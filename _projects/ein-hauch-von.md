@@ -15,8 +15,7 @@ thumbnail: /images/ein-hauch-von/ein-hauch-von-a.jpg
     <img src="/images/ein-hauch-von/ein-hauch-von-c.jpg" loading="eager">
     <p class="media-description">
         <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
-        {{ page.materials }}<br>
-        {{ page.dimensions }}
+        {{ page.materials }}, {{ page.dimensions }}<br>
     </p>
     <div class="video-wrapper">
         <iframe 
