@@ -504,19 +504,10 @@ document.addEventListener("DOMContentLoaded", function () {
         function updateDrawingCounter() {
             if (!drawingCounter || !drawings.length) return;
 
-            // Zählung beginnt bei der höchsten Zahl (neueste Zeichnung)
-            const displayNumber = currentDrawingIndex - 1;
-
-            // Maximalwert für die Zählung
-            const maxNumber = drawings.length;
-
-            // DisplayNumber begrenzen (falls mehr als maxNumber gezeichnet wird)
-            if (displayNumber > maxNumber) {
-                drawingCounter.textContent = maxNumber;
-            } else {
-                drawingCounter.textContent = displayNumber;
-            }
+            const displayNumber = drawings.length - currentDrawingIndex;
+            drawingCounter.textContent = displayNumber;
         }
+
 
         function getTransform(data) {
             const bounds = getBounds(data);
@@ -584,34 +575,28 @@ document.addEventListener("DOMContentLoaded", function () {
         function loadDrawing(index) {
             if (!drawings.length) return;
 
+            // Index begrenzen (0 bis drawings.length - 1)
             if (index < 0) {
-                currentDrawingIndex = drawings.length - 1;
+                currentDrawingIndex = drawings.length - 1; // Gehe zur neuesten Zeichnung
             } else if (index >= drawings.length) {
-                currentDrawingIndex = 0;
+                currentDrawingIndex = 0; // Gehe zur ältesten Zeichnung
             } else {
                 currentDrawingIndex = index;
             }
-            updateDrawingCounter();
-            
+
+            updateDrawingCounter(); // Counter aktualisieren
+
+            // Zeichnung laden
             fetch(drawings[currentDrawingIndex].file)
                 .then(response => response.json())
                 .then(data => {
                     replayData = data;
                     startReplay();
-                    updateAuthor(); 
+                    updateAuthor();
                 })
-
                 .catch(error => {
-                    console.error('Replay JSON konnte nicht geladen werden:', error);
+                    console.error('Fehler beim Laden:', error);
                 });
-
-            function updateAuthor() {
-                if (!drawingAuthor) return;
-
-                const author = drawings[currentDrawingIndex].author;
-
-                drawingAuthor.textContent = author ? author : '';
-            }
         }
 
         function showNextDrawing() {
