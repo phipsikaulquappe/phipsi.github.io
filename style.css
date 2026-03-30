@@ -642,9 +642,10 @@ a:visited {
 }
 
 .drawing-author {
-    text-align: center;
+    text-align: right;
     opacity: 0.7;
     font-size: 14px;
+    margin-left: auto; 
 }
 
 
