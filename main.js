@@ -517,7 +517,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 drawingCounter.textContent = displayNumber;
             }
         }
-
+        
 
         function getTransform(data) {
             const bounds = getBounds(data);
@@ -585,28 +585,34 @@ document.addEventListener("DOMContentLoaded", function () {
         function loadDrawing(index) {
             if (!drawings.length) return;
 
-            // Index begrenzen (0 bis drawings.length - 1)
             if (index < 0) {
-                currentDrawingIndex = drawings.length - 1; // Gehe zur neuesten Zeichnung
+                currentDrawingIndex = drawings.length - 1;
             } else if (index >= drawings.length) {
-                currentDrawingIndex = 0; // Gehe zur ältesten Zeichnung
+                currentDrawingIndex = 0;
             } else {
                 currentDrawingIndex = index;
             }
-
-            updateDrawingCounter(); // Counter aktualisieren
-
-            // Zeichnung laden
+            updateDrawingCounter();
+            
             fetch(drawings[currentDrawingIndex].file)
                 .then(response => response.json())
                 .then(data => {
                     replayData = data;
                     startReplay();
-                    updateAuthor();
+                    updateAuthor(); 
                 })
+
                 .catch(error => {
-                    console.error('Fehler beim Laden:', error);
+                    console.error('Replay JSON konnte nicht geladen werden:', error);
                 });
+
+            function updateAuthor() {
+                if (!drawingAuthor) return;
+
+                const author = drawings[currentDrawingIndex].author;
+
+                drawingAuthor.textContent = author ? author : '';
+            }
         }
 
         function showNextDrawing() {
