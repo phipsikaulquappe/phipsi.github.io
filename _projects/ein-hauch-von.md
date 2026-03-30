@@ -20,7 +20,7 @@ thumbnail: /images/ein-hauch-von/ein-hauch-von-a.jpg
     </p>
     <div class="video-wrapper">
         <iframe 
-            src="https://www.youtube.com/embed/c0oEE93s2eg"
+            src=""
             title="{{ page.title }}"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
