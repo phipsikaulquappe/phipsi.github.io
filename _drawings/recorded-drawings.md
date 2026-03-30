@@ -6,7 +6,7 @@ date: 2026-03-22
 hide_project_navigation: true
 recorded_drawings:
   - file: /assets/recorded-drawing-data/drawing-01.json
-    author: "Max Mustermann"
+    author: 
   - file: /assets/recorded-drawing-data/drawing-02.json
     author: 
   - file: /assets/recorded-drawing-data/drawing-03.json
