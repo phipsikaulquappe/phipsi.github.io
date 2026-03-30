@@ -624,20 +624,21 @@ a:visited {
     transform: scale(1.05);
 }
 
+.drawing-ui {
+    display: flex;
+    justify-content: center;   /* UI in der Mitte */
+    align-items: center;
+    margin-top: 12px;
+    gap: 28px; /* Abstand zwischen Buttons und Counter */
+}
+
+/* Counter in der Mitte */
 .drawing-counter {
     min-width: 70px;
     text-align: center;
     margin: 0;
     font-size: 0.95rem;
     line-height: 1.2;
-}
-
-.drawing-ui {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-top: 12px;
 }
 
 .drawing-author {

@@ -504,8 +504,18 @@ document.addEventListener("DOMContentLoaded", function () {
         function updateDrawingCounter() {
             if (!drawingCounter || !drawings.length) return;
 
-            const displayNumber = drawings.length - currentDrawingIndex;
-            drawingCounter.textContent = displayNumber;
+            // Zählung beginnt bei der höchsten Zahl (neueste Zeichnung)
+            const displayNumber = currentDrawingIndex + 1;
+
+            // Maximalwert für die Zählung
+            const maxNumber = drawings.length;
+
+            // DisplayNumber begrenzen (falls mehr als maxNumber gezeichnet wird)
+            if (displayNumber > maxNumber) {
+                drawingCounter.textContent = maxNumber;
+            } else {
+                drawingCounter.textContent = displayNumber;
+            }
         }
 
         function getTransform(data) {
