@@ -575,9 +575,6 @@ a:visited {
     opacity: 0.8;
 }
 
-.draw-instructions a {
-    font-weight: 200;
-}
 
 /* =========================
    DRAWING REPLAY
@@ -595,13 +592,13 @@ a:visited {
     touch-action: pan-y;
 }
 
-    .drawing-controls {
-        margin-top: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 28px;
-    }
+.drawing-controls {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+}
 
 .drawing-nav {
     background: transparent;
@@ -643,7 +640,6 @@ a:visited {
 
     margin-top: 12px;
 }
-
 
 .drawing-author {
     text-align: right;
