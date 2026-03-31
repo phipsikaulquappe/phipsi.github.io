@@ -50,5 +50,3 @@ recorded_drawings:
     </div>
     <div id="drawingAuthor" class="drawing-author"></div>
 </div>
-
-<p id="drawingCounter" class="drawing-counter"></p>
