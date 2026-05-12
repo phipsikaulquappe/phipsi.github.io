@@ -1,7 +1,6 @@
 ---
 layout: default
-title: Sound Fragment of Logistic Travel -from Leipzig to Hamburg
-year: 2025
+title: Sound Fragment of Logistic Travel
 materials: Field Recording
 dimensions: 46 min 48 sec
 date: 2025-12-20
@@ -9,11 +8,19 @@ thumbnail: /images/sound-fragment-of-logistic-travel.jpg
 ---
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
-<p>
-    “The entire network of infrastructures, technologies, spaces, workers, and violence that makes
+<div class="media-grid">
+    <img src="/images/sound-fragment-of-logistic-travel.jpg" loading="eager">
+
+    <p class="media-description-wide">
+        <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
+        {{ page.materials }}, {{ page.dimensions }}
+    </p>
+</div>
+
+<p>“The entire network of infrastructures, technologies, spaces, workers, and violence that makes
     the circulation of stuff possible remains tucked out of sight for those who engage with logistics
     only as consumers.”<br>
-    –– Deborah Cowen, The Deadly Life of Logistics<br>
+    –– Deborah Cowen, The Deadly Life of Logistics</p>
     <br>
     <br>
     Following a package through logistic infrastructures, the familiar, everyday object provides
@@ -37,11 +44,3 @@ thumbnail: /images/sound-fragment-of-logistic-travel.jpg
     Side note: Most of the original recording was lost for unknown reasons, the only audio that
 </p>
 
-<div class="media-grid">
-    <img src="/images/sound-fragment-of-logistic-travel.jpg" loading="eager">
-
-    <p class="media-description-wide">
-        <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
-        {{ page.materials }}, {{ page.dimensions }}
-    </p>
-</div>
