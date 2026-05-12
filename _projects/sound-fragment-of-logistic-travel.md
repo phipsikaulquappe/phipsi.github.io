@@ -12,7 +12,7 @@ thumbnail: /images/sound-fragment-of-logistic-travel.jpg
 <div class="media-grid">
     <img src="/images/sound-fragment-of-logistic-travel.jpg" loading="eager">
     <p class="media-description">
-        <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
+        <em>{{ page.title }} - from Leipzig to Hamburg</em><span class="year">, {{ page.year }}</span><br>
         {{ page.materials }}, {{ page.dimensions }}
     </p>
 </div>
