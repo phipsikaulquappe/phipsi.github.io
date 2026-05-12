@@ -20,12 +20,12 @@ thumbnail: /images/sound-fragment-of-logistic-travel.jpg
 <p>“The entire network of infrastructures, technologies, spaces, workers, and violence that makes
     the circulation of stuff possible remains tucked out of sight for those who engage with logistics
     only as consumers.”<br>
-    –– Deborah Cowen, The Deadly Life of Logistics<br>
+    –– Deborah Cowen, The Deadly Life of Logistics<br><br>
 </p>
  
 <p>Following a package through logistic infrastructures, the familiar, everyday object provides
     insight into a restless, unfamiliar space that is built on chains and constitutes the backbone of
-    global trade.<br>
+    global trade.<br><br>
 </p>
     
 <p>Sound Fragment of Logistic Travel - from Leipzig to Hamburg, 2025 is a 45 minutes and 48
@@ -33,18 +33,18 @@ thumbnail: /images/sound-fragment-of-logistic-travel.jpg
     sender to receiver. A generic recording device placed inside the package captures different
     noises – pounding, beeping, rattling and buzzing as well as music and fragments of voices.
     Some sounds seem to recur while others appear only once, forming a noisy, unpredictable,
-    distorted and harsh, sometimes faint and almost absent soundscape.<br>
+    distorted and harsh, sometimes faint and almost absent soundscape.<br><br>
 </p>
     
 <p>The unedited field recording reflects the conditions of logistic infrastructures, where raw
     materials and commodities circulate continuously. At the same time it bears witness to the
-    continuous labour and interrelations of human workers, machines and material flows.<br>
+    continuous labour and interrelations of human workers, machines and material flows.<br><br>
 </p>
     
 <p>The package was sent to my mother in December 2025 – it included a piece of Christmas
-    marzipan with a red ribbon.<br>
+    marzipan with a red ribbon.<br><br>
 </p>
 
-<p>Side note: Most of the original recording was lost for unknown reasons, the only audio that<br>
+<p>Side note: Most of the original recording was lost for unknown reasons, the only audio that<br><br>
 </p>
 
