@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Beton-Schnitt I
+title: Feder
 year: 2024
 materials: DC-Motor, Concrete, Wood, Wire, Sheet Metal
 dimensions: 11 × 14.5 × 9.5 cm
@@ -10,7 +10,7 @@ thumbnail: /images/beton-schnitt/beton-schnitt-i-a.jpg
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
 <div class="media-grid">
-    <img src="/images/beton-schnitt/beton-schnitt-i-a.jpg" alt="Beton-Schnitt I, 2024, kinetic sculpture" loading="eager">
+    <img src="/images/federspiel/federspiel-a.jpg" alt="Beton-Schnitt I, 2024, kinetic sculpture" loading="eager">
     <img src="/images/beton-schnitt/beton-schnitt-i-b.jpg" alt="Beton-Schnitt I, 2024, kinetic sculpture" loading="eager">  
     <p class="media-description-wide">
         <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
