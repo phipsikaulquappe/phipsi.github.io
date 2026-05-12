@@ -7,6 +7,10 @@ dimensions: 63 x 62 x 9 cm
 date: 2024-05-18
 thumbnail: /images/federspiel/federspiel-a.jpg
 ---
+<head>
+  <link rel="preload" as="image" href="/images/federspiel/federspiel-a.jpg">
+</head>
+
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
 <div class="media-grid">
