@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Sound Fragment of Logistic Travel - from Leipzig to Hamburg
+title: Sound Fragment of Logistic Travel -from Leipzig to Hamburg
 year: 2025
 materials: Field Recording
 dimensions: 46 min 48 sec
