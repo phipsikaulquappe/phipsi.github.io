@@ -10,7 +10,7 @@ thumbnail: /images/ein-hauch-von/ein-hauch-von-a.jpg
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
 <div class="media-grid">
-    <img src="/images/federspiel-a.jpg" loading="eager">
+    <img src="/images/federspiel/federspiel-a.jpg" loading="eager">
     <img src="/images/ein-hauch-von/ein-hauch-von-b.jpg" loading="eager">
     <img src="/images/ein-hauch-von/ein-hauch-von-c.jpg" loading="eager">
     <p class="media-description">
