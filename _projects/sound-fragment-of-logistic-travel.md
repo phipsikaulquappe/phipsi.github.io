@@ -17,7 +17,7 @@ thumbnail: /images/sound-fragment-of-logistic-travel.jpg
     </p>
 </div>
 
-<p>“The entire network of infrastructures, technologies, spaces, workers, and violence that makes
+<p><br>“The entire network of infrastructures, technologies, spaces, workers, and violence that makes
     the circulation of stuff possible remains tucked out of sight for those who engage with logistics
     only as consumers.”<br>
     –– Deborah Cowen, The Deadly Life of Logistics<br><br>
