@@ -14,7 +14,7 @@ thumbnail: /images/federspiel/federspiel-a.jpg
     <img src="/images/federspiel/federspiel-b.jpg" loading="eager">
     <p class="media-description">
         <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
-        {{ page.materials }}, {{ page.dimensions }}<br>
+        {{ page.materials }} <br> {{ page.dimensions }}<br>
     </p>
     <div class="video-wrapper">
         <iframe 
