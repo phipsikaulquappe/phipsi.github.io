@@ -8,14 +8,14 @@ date: 2024-05-18
 thumbnail: /images/federspiel/federspiel-a.jpg
 ---
 <head>
-  <link rel="preload" as="image" href="/images/federspiel/federspiel-a.jpg">
+  <link rel="preload" as="image" href="/images/federspiel/federspiel-a.webp">
 </head>
 
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
 <div class="media-grid">
-    <img src="/images/federspiel/federspiel-a.jpg" alt="Federspiel, 2024, kinetic sculpture" loading="eager" fetchpriority="high">
-    <img src="/images/federspiel/federspiel-b.jpg" alt="Federspiel, 2024, kinetic sculpture" loading="eager" fetchpriority="high">
+    <img src="/images/federspiel/federspiel-a.webp" alt="Federspiel, 2024, kinetic sculpture" loading="eager" fetchpriority="high">
+    <img src="/images/federspiel/federspiel-b.webp" alt="Federspiel, 2024, kinetic sculpture" loading="eager" fetchpriority="high">
     <p class="media-description">
         <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
         {{ page.materials }} <br> {{ page.dimensions }}<br>
