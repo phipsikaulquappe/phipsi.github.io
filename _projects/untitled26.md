@@ -6,14 +6,14 @@ materials: Installation
 dimensions: 
 location: HGB Leipzig (Rundgang)
 date: 2026-02-08
-thumbnail: /images/untitled/untitled26_a.jpg
+thumbnail: /images/untitled26/untitled26_a.jpg
 ---
 <link rel="preload" as="image" href="/images/untitled26/untitled26_a.jpg">
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 <div class="media-grid">
-    <img src="/images/untitled/untitled26_a.jpg" loading="eager" fetchpriority="high">
-    <img src="/images/untitled/untitled26_b.jpg" loading="lazy">
-    <img src="/images/untitled/untitled26_c.jpg" loading="lazy">
+    <img src="/images/untitled26/untitled26_a.jpg" loading="eager" fetchpriority="high">
+    <img src="/images/untitled26/untitled26_b.jpg" loading="lazy">
+    <img src="/images/untitled26/untitled26_c.jpg" loading="lazy">
     <p class="media-description">
         <em>{{ page.title }}</em><span class="year">, {{ page.year }},</span>
         {{ page.materials }}, {{ page.location }}
