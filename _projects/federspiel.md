@@ -3,9 +3,9 @@ layout: default
 title: Federspiel
 year: 2024
 materials: DC-Motors, Mudguard, Concrete, Wire, Metal, Piezo
-# dimensions: 63 x 62 x 9 cm
+dimensions: 63 x 62 x 9 cm
 date: 2024-05-18
-thumbnail: /images/federspiel/federspiel-a.jpg"
+thumbnail: /images/federspiel/federspiel-a.jpg
 ---
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
@@ -18,7 +18,7 @@ thumbnail: /images/federspiel/federspiel-a.jpg"
     </p>
     <div class="video-wrapper">
         <iframe 
-            src="https://www.youtube.com/watch?v=7_6LT2iRL6Y"
+            src="https://www.youtube.com/embed/7_6LT2iRL6Y"
             title="{{ page.title }}"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -27,4 +27,3 @@ thumbnail: /images/federspiel/federspiel-a.jpg"
         </iframe>
     </div>
 </div>
-<!-- 63 x 62 x 9 cm -->
