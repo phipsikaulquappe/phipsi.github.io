@@ -12,10 +12,10 @@ thumbnail: /images/sound-fragment-of-logistic-travel.jpg
 <div class="media-grid">
     <img src="/images/sound-fragment-of-logistic-travel.jpg" loading="eager">
 
-    <p class="media-description-wide">
+    class="media-description-wide">
         <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
         {{ page.materials }}, {{ page.dimensions }}
-    </p>
+
 </div>
 
 <p>“The entire network of infrastructures, technologies, spaces, workers, and violence that makes
