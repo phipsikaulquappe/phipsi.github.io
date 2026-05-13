@@ -3,7 +3,7 @@ layout: default
 title: Sound Fragment of Logistic Travel
 year: 2025
 materials: Field Recording
-dimensions: 46 min 48 sec
+dimensions: 45 min 48 sec
 date: 2025-12-20
 thumbnail: /images/sound-fragment-of-logistic-travel.jpg
 ---
