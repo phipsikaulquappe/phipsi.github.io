@@ -6,12 +6,12 @@ materials: DC-Motor, Concrete, Wood, Wire, Sheet Metal
 dimensions: 17 × 15 × 21 cm
 parent: beton-schnitt
 date: 2024-09-11
-thumbnail: /images/beton-schnitt/beton-schnitt-ii-a.jpg
+thumbnail: /images/projects/beton-schnitt/beton-schnitt-ii-a.jpg
 ---
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 <div class="media-grid">
-    <img src="/images/beton-schnitt/beton-schnitt-ii-a.jpg" alt="Beton-Schnitt II, 2024, kinetic sculpture" loading="eager">
-    <img src="/images/beton-schnitt/beton-schnitt-ii-b.jpg" alt="Beton-Schnitt II, 2024, kinetic sculpture" loading="eager">
+    <img src="/images/projects/beton-schnitt/beton-schnitt-ii-a.jpg" alt="Beton-Schnitt II, 2024, kinetic sculpture" loading="eager">
+    <img src="/images/projects/beton-schnitt/beton-schnitt-ii-b.jpg" alt="Beton-Schnitt II, 2024, kinetic sculpture" loading="eager">
     <p class="media-description-wide">
         <em>{{ page.title }}</em><span class="year">, {{ page.year }}</span><br>
         {{ page.materials }}<br>

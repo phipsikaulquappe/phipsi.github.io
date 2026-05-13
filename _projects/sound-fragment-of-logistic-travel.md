@@ -5,18 +5,19 @@ year: 2025
 materials: Field Recording
 dimensions: 45 min 48 sec
 date: 2025-12-20
-thumbnail: /images/sound-fragment-of-logistic-travel.jpg
+thumbnail: /images/projects/sound-fragment-of-logistic-travel.jpg
 ---
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
 <div class="media-grid">
-    <img src="/images/sound-fragment-of-logistic-travel.jpg" loading="eager">
+    <img src="/images/projects/sound-fragment-of-logistic-travel.jpg" loading="eager">
     <p class="media-description">
         <em>{{ page.title }} - from Leipzig to Hamburg</em><span class="year">, {{ page.year }}</span><br>
         {{ page.materials }}, {{ page.dimensions }}
     </p>
 </div>
 
+<br>
 <p><br>“The entire network of infrastructures, technologies, spaces, workers, and violence that makes
     the circulation of stuff possible remains tucked out of sight for those who engage with logistics
     only as consumers.”<br>
