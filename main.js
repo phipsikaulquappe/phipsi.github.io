@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
       LOAD SAVED THEME
     ========================== */
 
-    const themes = ["theme-white", "theme-gray", "theme-green", "theme-purple"];
+    const themes = ["theme-gray", "theme-green", "theme-purple"];
     const savedTheme = localStorage.getItem("siteTheme");
     
     // Alle Theme-Klassen entfernen
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.add(savedTheme);
     } else {
         // Default: Gray
-        document.body.classList.add("theme-white");
+        document.body.classList.add("theme-gray");
     }
 
     /* =========================
