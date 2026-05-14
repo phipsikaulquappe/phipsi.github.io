@@ -50,8 +50,12 @@ thumbnail: /images/projects/sound-fragment-of-logistic-travel.jpg
 remained on the recording devices sim card was this fragment of 45 minutes and 48 seconds.<br><br>
 </p>
 
-<div class="bandcamp-wrapper">
-  <iframe 
-    <iframe style="border: 0; width: 400px; height: 241px;" src="https://bandcamp.com/EmbeddedPlayer/album=2183019538/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://philippalbrecht.bandcamp.com/album/sound-fragment-of-logistic-travel">Sound Fragment of Logistic Travel by Philipp Albrecht</a></iframe>
+ <div class="bandcamp-wrapper">
+  <iframe style="border: 0; width: 400px; height: 241px;" 
+    src="https://bandcamp.com/EmbeddedPlayer/album=2183019538/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" 
+    seamless>
+    <a href="https://philippalbrecht.bandcamp.com/album/sound-fragment-of-logistic-travel">
+      Sound Fragment of Logistic Travel by Philipp Albrecht
+    </a>
   </iframe>
 </div>
