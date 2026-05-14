@@ -576,7 +576,7 @@ a:visited {
 
 
 /* =========================
-   DRAWING REPLAY
+   DRAWING REPLAY #recorded drawings
 ========================= */
 
 .drawing-replay {
@@ -625,11 +625,20 @@ a:visited {
 }
 
 .drawing-ui {
-    display: flex;
-    justify-content: center;   /* UI in der Mitte */
-    align-items: center;
-    margin-top: 6px;
-    gap: 28px; /* Abstand zwischen Buttons und Counter */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6px;
+  gap: 28px;
+  position: relative; /* hinzufügen */
+}
+
+.drawing-author {
+  position: absolute;
+  right: 0;           /* statt margin-left: auto */
+  opacity: 0.7;
+  font-size: 14px;
+  text-align: right;
 }
 
 /* Counter in der Mitte */
@@ -641,12 +650,6 @@ a:visited {
     line-height: 1.2;
 }
 
-.drawing-author {
-    text-align: right;
-    opacity: 0.7;
-    font-size: 14px;
-    margin-left: auto; 
-}
 
 
 /* =========================

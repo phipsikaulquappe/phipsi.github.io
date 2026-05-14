@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const aboutCanvas = document.getElementById('aboutCanvas');
 
-    let currentColor = '#b3ff00'; // default
+    let currentColor = '#009dff'; // default
 
     if (aboutCanvas) {
         const ctx = aboutCanvas.getContext('2d');
