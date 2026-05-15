@@ -11,7 +11,7 @@ thumbnail: /images/projects/sound-fragment-of-logistic-travel.jpg
 
 <div class="media-grid">
      <div class="bandcamp-wrapper">
-        <iframe style="border: 0; width: 450px; height: 450px;" src="https://bandcamp.com/EmbeddedPlayer/album=2183019538/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://philippalbrecht.bandcamp.com/album/sound-fragment-of-logistic-travel">Sound Fragment of Logistic Travel by Philipp Albrecht</a></iframe>
+        <iframe style="border: 0; width: 410px; height: 410px;" src="https://bandcamp.com/EmbeddedPlayer/album=2183019538/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://philippalbrecht.bandcamp.com/album/sound-fragment-of-logistic-travel">Sound Fragment of Logistic Travel by Philipp Albrecht</a></iframe>
     </div>
     <p class="media-description">
         <em>{{ page.title }} - from Leipzig to Hamburg</em><span class="year">, {{ page.year }}</span><br>

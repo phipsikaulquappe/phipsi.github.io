@@ -765,9 +765,9 @@ a:visited {
     }
 
     .lightbox-image {
-        width: auto;        /* volle Bildschirmbreite */
+        width: 100vw;        /* volle Bildschirmbreite */
         height: auto;        /* Seitenverhältnis behalten */
-        max-width: none;
+        max-width: 100vw;
         max-height: none;    /* wichtig: nicht begrenzen */
     }
 
