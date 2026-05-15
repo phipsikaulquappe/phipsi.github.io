@@ -49,7 +49,7 @@ thumbnail: /images/projects/sound-fragment-of-logistic-travel.jpg
 </p>
 
 <p>Side note: Most of the original recording was lost for unknown reasons, the only audio that
-remained on the recording devices sim card was this fragment of 45 minutes and 48 seconds.<br><br>
+remained on the recording devices sd card was this fragment of 45 minutes and 48 seconds.<br><br>
 </p>
 
 
