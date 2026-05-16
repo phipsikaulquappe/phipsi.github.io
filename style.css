@@ -313,6 +313,10 @@ a:visited {
     border: none;
 }
 
+.bandcamp-wrapper + .media-description {
+  margin-top: 4px; /* Wert nach Bedarf anpassen */
+}
+
 /* Beschreibung */
 .media-description {
     max-width: 900px;
