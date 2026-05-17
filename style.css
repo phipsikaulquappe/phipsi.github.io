@@ -761,7 +761,7 @@ a:visited {
     }
 
     .media-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 25px;
     }
 
@@ -778,8 +778,13 @@ a:visited {
 
     .video-wrapper,
     .media-wide,
-    .media-description {
+    .media-description,
+    .media-description-wide {
         grid-column: span 1;
+    }
+
+    .media-description-wide {
+        font-weight: 600;
     }
 
     /* Projekttitel in Mobile anzeigen */
