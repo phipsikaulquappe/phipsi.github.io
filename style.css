@@ -761,7 +761,7 @@ a:visited {
     }
 
     .media-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 1fr;
         gap: 25px;
     }
 
