@@ -10,8 +10,8 @@ thumbnail: /images/projects/sound-fragment-of-logistic-travel.jpg
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
 <div class="media-grid">
-    <div class="bandcamp-wrapper" style="width: 100%;">
-        <iframe style="border: 0; width: 100%; height: 410px;" 
+    <div class="bandcamp-wrapper" style="width: 100%; aspect-ratio: 1 / 1;">
+        <iframe style="border: 0; width: 100%; height: 100%;" 
             src="https://bandcamp.com/EmbeddedPlayer/album=2183019538/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" 
             seamless>
             <a href="https://philippalbrecht.bandcamp.com/album/sound-fragment-of-logistic-travel">Sound Fragment of Logistic Travel by Philipp Albrecht</a>
