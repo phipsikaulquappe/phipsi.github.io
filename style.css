@@ -27,6 +27,7 @@ video,
     cursor: url('/assets/cursor-pointer.png') 12 10, pointer;
 }
 
+
 /* =========================
    BODY + BACKGROUND
 ========================= */
@@ -158,6 +159,7 @@ a:visited {
 .lightbox img {
     border-radius: 0;
 }
+
 
 /* =========================
    HEADER NAVIGATION

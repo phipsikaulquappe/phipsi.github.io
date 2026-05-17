@@ -10,7 +10,7 @@ thumbnail: /images/drawings/dresdener-zeichnungen/d1.jpg
 
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
-<p>This series of drawings was created in spring 2024 during an internship at Kupferstichkabinett and Gemäldegalerie Alte Meister in Dresden. It was not part of the work their but a consequence of it.  <br>
+<p>This series of 260 drawings was created in spring 2024 during an internship at Kupferstichkabinett and Gemäldegalerie Alte Meister in Dresden.  <br>
 The drawings are made on printing paper (DIN-A4).<br>
 </p>
 
