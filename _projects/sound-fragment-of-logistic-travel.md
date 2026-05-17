@@ -9,8 +9,8 @@ thumbnail: /images/projects/sound-fragment-of-logistic-travel.jpg
 ---
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
-<div class="media-grid" style="grid-template-columns: auto 1fr;">
-    <div class="bandcamp-wrapper" style="width: 100%; max-width: 350px; aspect-ratio: 1 / 1;">
+<div class="media-grid" style="grid-template-columns: auto 1fr; --mobile-cols: 1fr;">
+    <div class="bandcamp-wrapper" style="width: 100%; max-width: 400px; aspect-ratio: 1 / 1;">
         <iframe style="border: 0; width: 100%; height: 100%;" 
             src="https://bandcamp.com/EmbeddedPlayer/album=2183019538/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" 
             seamless>
@@ -21,7 +21,7 @@ thumbnail: /images/projects/sound-fragment-of-logistic-travel.jpg
         <em>{{ page.title }} - from Leipzig to Hamburg</em><span class="year">, {{ page.year }}</span><br>
         {{ page.materials }}, {{ page.dimensions }}
     </p>
-</div>
+</div> 
 
 <br>
 <p><br>“The entire network of infrastructures, technologies, spaces, workers, and violence that makes
