@@ -10,7 +10,7 @@ thumbnail: /images/projects/sound-fragment-of-logistic-travel.jpg
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
 <div class="media-grid">
-    <div class="bandcamp-wrapper" style="width: 100%; aspect-ratio: 1 / 1;">
+    <div class="bandcamp-wrapper" style="width: 100%; max-width: 300px; aspect-ratio: 1 / 1;">
         <iframe style="border: 0; width: 100%; height: 100%;" 
             src="https://bandcamp.com/EmbeddedPlayer/album=2183019538/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" 
             seamless>
