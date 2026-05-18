@@ -8,18 +8,20 @@ title: Projects
    | where_exp: "item", "item.parent == nil"
    | sort: "date"
    | reverse %}
+{% assign global_index = 0 %}
 {% for parent in parents %}
     {% assign children = site.projects
         | where: "parent", parent.slug
         | sort: "date" %}
     {% if children.size > 0 %}
         {% for child in children %}
+        {% assign global_index = global_index | plus: 1 %}
 <a href="{{ child.url }}" 
 class="preview-item {% if child.thumbnail_small %}preview-item--small{% endif %}"
 data-project="{{ child.url }}">
 <div class="preview-image">
 <img src="{{ child.thumbnail }}" 
-  {% if forloop.index <= 3 %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+{% if global_index <= 3 %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
 </div>
 <div class="preview-title">
 <em>{{ child.title }}</em>{% if child.year %}<span class="year">, {{ child.year }}</span>{% endif %}
@@ -28,12 +30,13 @@ data-project="{{ child.url }}">
         {% endfor %}
     {% else %}
         {% if parent.thumbnail %}
+        {% assign global_index = global_index | plus: 1 %}
 <a href="{{ parent.url }}" 
 class="preview-item {% if parent.thumbnail_small %}preview-item--small{% endif %}"
 data-project="{{ parent.url }}">
 <div class="preview-image">
 <img src="{{ parent.thumbnail }}" 
-  {% if forloop.index <= 3 %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+{% if global_index <= 3 %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
 </div>
 <div class="preview-title">
 <em>{{ parent.title }}</em>{% if parent.year %}<span class="year">, {{ parent.year }}</span>{% endif %}
