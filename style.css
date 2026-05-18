@@ -285,15 +285,15 @@ a:visited {
     width: 100%;
     height: auto;
     display: block;
-    /* clip-path: inset(0 0 100% 0);
-    /* opacity: 0.85; */
-    /* transition: clip-path 0.8s ease, opacity 0.8s ease; */
-}
+    clip-path: inset(0 0 100% 0);
+    opacity: 0.85;
+    transition: clip-path 0.8s ease, opacity 0.8s ease;
+} 
 
-/* .media-grid img.is-loaded {
+.media-grid img.is-loaded {
     clip-path: inset(0 0 0 0);
-    /* opacity: 1;
-} */
+    /* /* opacity: 1; */
+}
 
 .media-grid video {
     width: 100%;
