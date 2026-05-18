@@ -204,8 +204,13 @@ document.addEventListener("DOMContentLoaded", function () {
             if (e.target === lightboxImage) return;
 
             if (isMobile) {
-                // MOBILE → nur außerhalb des Bildes schließen
-                closeLightbox();
+                const clickX = e.clientX;
+                const screenWidth = window.innerWidth;
+                if (clickX > screenWidth / 2) {
+                    showNext();
+                } else {
+                    showPrev();
+                }
                 return;
             }
 
