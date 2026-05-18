@@ -290,10 +290,10 @@ a:visited {
     /* transition: clip-path 0.8s ease, opacity 0.8s ease; */
 }
 
-.media-grid img.is-loaded {
+/* .media-grid img.is-loaded {
     clip-path: inset(0 0 0 0);
-    /* opacity: 1; */
-}
+    /* opacity: 1;
+} */
 
 .media-grid video {
     width: 100%;
@@ -780,6 +780,7 @@ a:visited {
     }
 
     .slideshow-nav-left,
+    .slideshow-close,
     .slideshow-nav-right {
         display: none;
     }
