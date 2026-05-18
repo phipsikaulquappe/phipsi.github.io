@@ -779,6 +779,11 @@ a:visited {
         padding: 0;          /* ggf. vorhandenes padding entfernen */
     }
 
+    .slideshow-nav-left,
+    .slideshow-nav-right {
+        display: none;
+    }
+
     .video-wrapper,
     .media-wide,
     .media-description,
