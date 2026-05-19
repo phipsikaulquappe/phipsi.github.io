@@ -194,26 +194,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Klick-Zonen links / rechts
         lightbox.addEventListener('click', (e) => {
-        if (isMobile) {
-            const clickY = e.clientY;
-            const screenHeight = window.innerHeight;
-            const clickX = e.clientX;
-            const screenWidth = window.innerWidth;
 
-            // Oberes oder unteres Drittel → schließen
-            if (clickY < screenHeight / 4 || clickY > screenHeight / 4 * 3) {
-                closeLightbox();
+            const isMobile = window.matchMedia("(pointer: coarse)").matches;
+
+            // Wenn Button oder Button-Inhalt geklickt wurde → nichts hier machen
+            if (e.target.closest('button')) return;
+
+            if (isMobile) {
+                const clickY = e.clientY;
+                const screenHeight = window.innerHeight;
+                const clickX = e.clientX;
+                const screenWidth = window.innerWidth;
+
+                // Oberes oder unteres Viertel → schließen
+                if (clickY < screenHeight / 4 || clickY > screenHeight / 4 * 3) {
+                    closeLightbox();
+                    return;
+                }
+
+                // Mittlerer Bereich → links/rechts navigieren
+                if (clickX > screenWidth / 2) {
+                    showNext();
+                } else {
+                    showPrev();
+                }
                 return;
             }
-
-            // Mittlerer Bereich → links/rechts navigieren
-            if (clickX > screenWidth / 2) {
-                showNext();
-            } else {
-                showPrev();
-            }
-            return;
-        }
 
             // DESKTOP → Links / Rechts Navigation
             const clickX = e.clientX;
@@ -226,9 +232,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         });
+
     }
-
-
     /* =========================
         ABOUT DRAWING
     ========================= */
