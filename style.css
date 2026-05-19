@@ -778,11 +778,6 @@ a:visited {
         display: none;
     }
 
-        /* Close Button bleibt sichtbar */
-    .slideshow-close {
-        display: block;
-    }
-
     .video-wrapper,
     .media-wide,
     .media-description,
