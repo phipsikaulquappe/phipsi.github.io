@@ -21,9 +21,9 @@ recorded_drawings:
     author: 
   - file: /assets/recorded-drawing-data/drawing-08.json
     author: 
+  - file: /assets/recorded-drawing-data/drawing-09.json
+    author: 
     
-  # - file: /assets/recorded-drawing-data/drawing-09.json
-  #   author: 
     # file: /assets/recorded-drawing-data/drawing-09.json
     # author: "Anonymous"
     # file: /assets/recorded-drawing-data/drawing-10.json
