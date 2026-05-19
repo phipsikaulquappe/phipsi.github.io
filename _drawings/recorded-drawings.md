@@ -11,16 +11,16 @@ recorded_drawings:
     author: 
   - file: /assets/recorded-drawing-data/drawing-03.json
     author: 
-  - file: /assets/recorded-drawing-data/drawing-04.json
-    author: 
+  # - file: /assets/recorded-drawing-data/drawing-04.json
+  #   author: 
   - file: /assets/recorded-drawing-data/drawing-05.json
     author:
   - file: /assets/recorded-drawing-data/drawing-06.json
     author: 
-  - file: /assets/recorded-drawing-data/drawing-07.json
-    author: 
-  - file: /assets/recorded-drawing-data/drawing-08.json
-    author: 
+  # - file: /assets/recorded-drawing-data/drawing-07.json
+  #   author: 
+  # - file: /assets/recorded-drawing-data/drawing-08.json
+  #   author: 
   - file: /assets/recorded-drawing-data/drawing-09.json
     author: 
     

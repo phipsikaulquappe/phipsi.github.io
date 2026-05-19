@@ -58,11 +58,6 @@ body.theme-green {
     background-color: hsl(109, 93%, 52%);
 }
 
-/* Rot */
-body.theme-white {
-    background-color: #ffffff; /* #ee8e8e; */
-}
-
 /* Hellgrau */
 body.theme-gray {
     background-color: #e8e8e8;
@@ -779,9 +774,13 @@ a:visited {
     }
 
     .slideshow-nav-left,
-    .slideshow-close,
     .slideshow-nav-right {
         display: none;
+    }
+
+        /* Close Button bleibt sichtbar */
+    .slideshow-close {
+        display: block;
     }
 
     .video-wrapper,
