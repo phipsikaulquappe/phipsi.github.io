@@ -774,6 +774,7 @@ a:visited {
     }
 
     .slideshow-nav-left,
+    .slideshow-close,
     .slideshow-nav-right {
         display: none;
     }
