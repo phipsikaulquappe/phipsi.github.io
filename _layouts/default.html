@@ -25,13 +25,15 @@
     </title>
 
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-    <meta name="description" content="Leipzig based artist exploring material and spacial relations.">
+    <meta name="description" content="Leipzig based artist exploring material and spatial relations.">
 
     <meta property="og:title" content="{{ page.title }} — {{ site.title }}">
-    <meta property="og:description" content="Artist portfolio">
-    <meta property="og:image" content="{{ site.url }}{{ page.thumbnail }}">
+    <meta property="og:description" content="Philipp Albrecht – Künstler aus Leipzig, studiert an der HGB - Hochschule für Grafik und Buchkunst Leipzig.">    <meta property="og:image" content="{{ site.url }}{{ page.thumbnail }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+
+    <meta name="author" content="Philipp Albrecht">
+    <meta name="robots" content="index, follow">
 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -41,9 +43,60 @@
 
     <link rel="preload" href="/style.css" as="style">
     <link rel="preload" href="/assets/cursor-default.png" as="image">
+
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Philipp Albrecht",
+    "url": "https://www.philippalbrecht.de",
+    "jobTitle": "Artist",
+    "description": "Leipzig-based artist studying at HGB Hochschule für Grafik und Buchkunst Leipzig, exploring material and spatial relations.", 
+    "knowsAbout": ["sculpture", "installation art", "media art", "art history"],   
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Leipzig",
+        "addressCountry": "DE"
+    },
+    "alumniOf": [
+        {
+            "@type": "CollegeOrUniversity",
+            "name": "Hochschule für Grafik und Buchkunst Leipzig",
+            "alternateName": "HGB Leipzig"
+        },
+        {
+            "@type": "CollegeOrUniversity",
+            "name": "Universität Leipzig",
+            "department": "Kunstgeschichte",
+            "description": "Bachelor of Arts in Art History"
+        }
+     ],
+    "performerIn": {
+        "@type": "ExhibitionEvent",
+        "name": "Inter(-)Views",
+        "url": "https://www.hgb-leipzig.de/hochschule/kalender/2892",
+        "startDate": "2026-05-19",
+        "endDate": "2026-06-03",
+        "location": {
+        "@type": "Place",
+        "name": "HGB Galerie",
+        "address": "Wächterstraße 11, 04107 Leipzig"
+        },
+        "organizer": {
+        "@type": "Organization",
+        "name": "Hochschule für Grafik und Buchkunst Leipzig"
+        }
+    },
+
+    "sameAs": [
+        "https://philippalbrecht.bandcamp.com"
+    ]
+    }
+    </script>
+
 </head>
 
-<body class="theme-red">
+<body class="theme-gray">
 
     <div id="lightbox" class="lightbox hidden">
 
