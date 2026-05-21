@@ -1,30 +1,48 @@
 ---
 layout: default
-title: Drawings
+title: Drawings 
 ---
-
-<h1 class="project-title">Drawings - Overview</h1>
-
+<h1 class="project-title">Overview</h1>
 <div id="preview-grid">
-
-{% assign items = site.drawings | sort: "date" | reverse %}
-
-{% for item in items %}
-    {% if item.thumbnail %}
-        <a href="{{ item.url }}" 
-           class="preview-item"
-           data-project="{{ item.url }}">
-            <div class="preview-image">
-                <img src="{{ item.thumbnail }}" loading="eager" alt="{{ item.title }}">
-            </div>
-            <div class="preview-title">
-                <em>{{ item.title }}</em>
-                {% if item.year %}
-                    <span class="year">, {{ item.year }}</span>
-                {% endif %}
-            </div>
-        </a>
+{% assign parents = site.drawings
+   | where_exp: "item", "item.parent == nil"
+   | sort: "date"
+   | reverse %}
+{% assign global_index = 0 %}
+{% for parent in parents %}
+    {% assign children = site.drawings
+        | where: "parent", parent.slug
+        | sort: "date" %}
+    {% if children.size > 0 %}
+        {% for child in children %}
+        {% assign global_index = global_index | plus: 1 %}
+<a href="{{ child.url }}" 
+class="preview-item {% if child.thumbnail_small %}preview-item--small{% endif %}"
+data-project="{{ child.url }}">
+<div class="preview-image">
+<img src="{{ child.thumbnail }}" 
+{% if global_index <= 3 %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+</div>
+<div class="preview-title">
+<em>{{ child.title }}</em>{% if child.year %}<span class="year">, {{ child.year }}</span>{% endif %}
+</div>
+</a>
+        {% endfor %}
+    {% else %}
+        {% if parent.thumbnail %}
+        {% assign global_index = global_index | plus: 1 %}
+<a href="{{ parent.url }}" 
+class="preview-item {% if parent.thumbnail_small %}preview-item--small{% endif %}"
+data-project="{{ parent.url }}">
+<div class="preview-image">
+<img src="{{ parent.thumbnail }}" 
+{% if global_index <= 3 %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+</div>
+<div class="preview-title">
+<em>{{ parent.title }}</em>{% if parent.year %}<span class="year">, {{ parent.year }}</span>{% endif %}
+</div>
+</a>
+        {% endif %}
     {% endif %}
 {% endfor %}
-
 </div>
