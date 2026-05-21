@@ -6,7 +6,7 @@ materials:
 dimensions: 
 parent: dresdener-zeichnungen
 date: 2024-05-18
-thumbnail: /images/drawings/dresdener-zeichnungen/d1.jpg
+thumbnail: /images/drawings/dresdener-zeichnungen/block-1/d1.jpg
 ---
 
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
