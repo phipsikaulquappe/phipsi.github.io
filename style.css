@@ -53,18 +53,12 @@ body {
     color: #000;
 }
 
-/* Gelb) */
-body.theme-green {
-    background-color: hsl(109, 93%, 52%);
+:root {
+    --background-color: #e8e8e8;
 }
 
-/* Hellgrau */
-body.theme-gray {
-    background-color: #e8e8e8;
-}
-
-body.theme-purple {
-    background-color: #d12aff;
+body {
+    background-color: var(--background-color);
 }
 
 /* =========================

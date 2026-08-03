@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
     <script>
-    (function() {
-        const savedTheme = localStorage.getItem("siteTheme");
-        if (savedTheme) {
-            document.addEventListener("DOMContentLoaded", function(){
-                document.body.classList.add(savedTheme);
-            });
-        }
-    })();
+        (function () {
+            const colors = {
+                "theme-gray": "#e8e8e8",
+                "theme-green": "hsl(109, 93%, 52%)",
+                "theme-purple": "#d12aff"
+            };
+
+            const savedTheme = localStorage.getItem("siteTheme") || "theme-gray";
+
+            document.documentElement.style.setProperty(
+                "--background-color",
+                colors[savedTheme]
+            );
+        })();
     </script>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
