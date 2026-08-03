@@ -32,39 +32,45 @@ document.addEventListener("DOMContentLoaded", function () {
     /* =========================
       LOAD SAVED THEME
     ========================== */
-    const themes = [
-        "theme-gray",
-        "theme-green",
-        "theme-purple"
-    ];
 
-    const colors = {
-        "theme-gray": "#e8e8e8",
-        "theme-green": "hsl(109, 93%, 52%)",
-        "theme-purple": "#d12aff"
-    };
+    const themes = ["theme-gray", "theme-green", "theme-purple"];
+    const savedTheme = localStorage.getItem("siteTheme");
+    
+    // Alle Theme-Klassen entfernen
+    document.body.classList.remove(...themes);
 
+    // Falls gespeichert → anwenden
+    if (savedTheme && themes.includes(savedTheme)) {
+        document.body.classList.add(savedTheme);
+    } else {
+        // Default: Gray
+        document.body.classList.add("theme-gray");
+    }
 
     /* =========================
        THEME TOGGLE
     ========================== */
 
-    themeBtn.addEventListener("click", function () {
+    const themeBtn = document.getElementById("themeToggle");
 
-        let currentTheme = localStorage.getItem("siteTheme") || "theme-gray";
+    if (themeBtn) {
 
-        let currentIndex = themes.indexOf(currentTheme);
-            
-        let nextTheme = themes[(currentIndex + 1) % themes.length];
+        themeBtn.addEventListener("click", function () {
 
-        localStorage.setItem("siteTheme", nextTheme);
+            let currentIndex = themes.findIndex(t =>
+                document.body.classList.contains(t)
+            );
 
-        document.documentElement.style.setProperty(
-            "--background-color",
-            colors[nextTheme]
-        );
-    }); 
+            if (currentIndex !== -1) {
+                document.body.classList.remove(themes[currentIndex]);
+            }
 
+            let nextIndex = (currentIndex + 1) % themes.length;
+            document.body.classList.add(themes[nextIndex]);
+            localStorage.setItem("siteTheme", themes[nextIndex]);
+
+        });
+    }
 
      /* =========================
         SIDEBAR → PREVIEW HOVER LINK

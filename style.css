@@ -33,7 +33,7 @@ video,
 ========================= */
 
 body {
-    font-family:"American Typewriter", ;
+    font-family:"Courier New", Courier, monospace; 
     /* background-color: #ffffff; #f6f1c4; #ee8e8e */
     /* background-image:
         linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
@@ -53,12 +53,18 @@ body {
     color: #000;
 }
 
-:root {
-    --background-color: #e8e8e8;
+/* Gelb) */
+body.theme-green {
+    background-color: hsl(109, 93%, 52%);
 }
 
-body {
-    background-color: var(--background-color);
+/* Hellgrau */
+body.theme-gray {
+    background-color: #e8e8e8;
+}
+
+body.theme-purple {
+    background-color: #d12aff;
 }
 
 /* =========================
