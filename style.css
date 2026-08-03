@@ -33,7 +33,7 @@ video,
 ========================= */
 
 body {
-    font-family:"Courier New", Courier, monospace; 
+    font-family: 'Helvetica Neue', Arial, Helvetica, Verdana, sans-serif;
     /* background-color: #ffffff; #f6f1c4; #ee8e8e */
     /* background-image:
         linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
