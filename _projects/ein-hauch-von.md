@@ -5,7 +5,7 @@ year: 2024
 materials: DC-Motor, Moneytree, Flowerpot, Wire, Metal, Solar Panel
 dimensions: 30 x 19 x 16 cm
 date: 2024-11-30
-thumbnail: /images/projects/ein-hauch-von/ein-hauch-von-a.webp
+thumbnail: /images/projects/ein-hauch-von/ein-hauch-von-b.webp
 ---
 <h1 class="project-title"><em>{{ page.title }}</em><span class="year">, {{ page.year }}</span></h1>
 
